@@ -1,0 +1,78 @@
+---
+title: "General"
+description: "Generic server settings for configuring Davnode on Spark, Samsung Email, Evolution, and other email apps."
+icon: "laptop"
+---
+
+# Connect Davnode to Other Clients
+
+If you are using an email client not covered in our specific guides (such as **Spark**, **Samsung Email**, **Airmail**, or **Evolution** on Linux), use the manual configuration settings below.
+
+## Server Settings Reference (Cheat Sheet)
+
+Most email clients will ask for an "Advanced" or "Manual" setup. Enter these values exactly as they appear.
+
+### Incoming Mail (IMAP)
+
+Recommended for syncing emails across multiple devices (phone, laptop, tablet).
+
+| Setting                   | Value                                            |
+| :------------------------ | :----------------------------------------------- |
+| **Server Hostname**       | `mail.davnode.me`                                |
+| **Port**                  | `993`                                            |
+| **Security / Encryption** | SSL / TLS                                        |
+| **Username**              | Your full email address (e.g., `you@davnode.me`) |
+| **Password**              | Your email password                              |
+
+### Outgoing Mail (SMTP)
+
+Required to send emails.
+
+| Setting                   | Value                      |
+| :------------------------ | :------------------------- |
+| **Server Hostname**       | `mail.davnode.me`          |
+| **Port**                  | `465`                      |
+| **Security / Encryption** | SSL / TLS                  |
+| **Authentication**        | Required (Normal Password) |
+| **Username**              | Your full email address    |
+
+If port `465` is blocked on your network, try port `8465` with **SSL/TLS** or port `587` with **STARTTLS**.
+
+---
+
+## Generic Setup Guide
+
+While menus vary by app, the general process is almost always the same:
+
+1.  **Add Account:** Look for "Settings" > "Accounts" > "Add Account".
+2.  **Select Type:** Choose **IMAP** (sometimes listed as "Other" or "Internet Email").
+    - _Avoid selecting POP3._
+3.  **Enter Credentials:** Type your name, full email address, and password.
+4.  **Manual Config:** If the app tries to auto-detect settings, look for a button that says **"Manual setup"**, **"Advanced settings"**, or **"Show details"**.
+5.  **Input Server Details:** Copy the Hostname (`mail.davnode.me`) and Ports (`993` / `465`) from the reference table above.
+6.  **Authenticate:** Ensure the "Outgoing Server requires authentication" box is checked.
+
+<Note>
+  We recommend to always use an **app password** for connecting mail clients.
+</Note>
+
+---
+
+## Troubleshooting Common Issues
+
+### "Authentication Failed"
+
+- **Username:** Ensure you are using your **full email address** as the username, not just the part before the `@`.
+- **Hidden Spaces:** If copying and pasting, check that you didn't accidentally copy a blank space at the end of the password or hostname.
+
+### "Connection Refused" or "Cannot Verify Server"
+
+- **Port Mismatch:** Check that you selected **SSL/TLS** for port **465**.
+  - If you selected **STARTTLS**, you must use port **587**.
+  - _Davnode recommends Port 465 (SSL/TLS) for the best compatibility._
+
+If port `465` is blocked on your network, try port `8465` with **SSL/TLS** or port `587` with **STARTTLS**.
+
+### "Certificate Warning"
+
+- If you see a warning about the certificate not matching, ensure the **Server Hostname** is set to `mail.davnode.me`.

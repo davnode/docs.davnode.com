@@ -1,0 +1,111 @@
+---
+title: "Android (Gmail)"
+description: "Una guía para configurar tu correo Davnode en Android usando la aplicación Gmail."
+icon: "android"
+---
+
+<Note>
+  **Recomendamos** usar la aplicación
+  **[Thunderbird](https://play.google.com/store/apps/details?id=net.thunderbird.android)**
+  para usar el correo Davnode en Android.
+</Note>
+
+# Conectar Davnode a Android
+
+Esta guía te ayudará a configurar tu cuenta de correo electrónico **Davnode** en tu teléfono o tablet Android utilizando la aplicación Gmail predeterminada.
+
+## Requisitos previos
+
+- Tu **dirección de correo Davnode**.
+- Tu **contraseña** de correo o **contraseña de aplicación (recomendado)**.
+- La aplicación **Gmail** (preinstalada en la mayoría de los dispositivos Android).
+
+<Note>
+  Recomendamos utilizar siempre una **contraseña de aplicación (app password)**
+  para conectar clientes de correo.
+</Note>
+
+---
+
+## Referencia de Configuración del Servidor
+
+Ten a mano estos ajustes. Android a menudo intenta adivinar el nombre del servidor basándose en tu dominio de correo, por lo que **probablemente necesites editar el campo "Servidor" manualmente**.
+
+| Configuración            | Protocolo | Nombre de host    | Puerto | Seguridad |
+| :----------------------- | :-------- | :---------------- | :----- | :-------- |
+| **Entrante**             | IMAP      | `mail.davnode.me` | `993`  | SSL/TLS   |
+| **Saliente**             | SMTP      | `mail.davnode.me` | `465`  | SSL/TLS   |
+| **Saliente alternativo** | SMTP      | `mail.davnode.me` | `8465` | SSL/TLS   |
+| **Saliente alternativo** | SMTP      | `mail.davnode.me` | `587`  | STARTTLS  |
+
+---
+
+## Instrucciones de Configuración
+
+1.  Abre la aplicación **Gmail** en tu dispositivo Android.
+2.  Toca tu **foto de perfil** en la esquina superior derecha.
+3.  Selecciona **Añadir otra cuenta**.
+4.  En la pantalla "Configurar correo electrónico", selecciona **Otro**.
+5.  Introduce tu **dirección de correo completa de Davnode** y toca **Siguiente**.
+6.  Selecciona **Personal (IMAP)**.
+7.  Introduce tu **contraseña** y toca **Siguiente**.
+
+### Ajustes del servidor de entrada
+
+1.  **Nombre de usuario:** Asegúrate de que sea tu dirección de correo completa.
+2.  **Contraseña:** Tu contraseña de correo.
+3.  **Servidor:** Cámbialo a `mail.davnode.me`.
+    - _Nota: Android puede poner por defecto tu dominio (ej. `example.com`). Debes cambiarlo._
+4.  Toca **Siguiente**.
+
+### Ajustes del servidor de salida
+
+1.  **Nombre de usuario:** Asegúrate de que sea tu dirección de correo completa.
+2.  **Contraseña:** Tu contraseña de correo.
+3.  **Servidor SMTP:** Cámbialo a `mail.davnode.me`.
+4.  Toca **Siguiente**.
+
+### Opciones de la cuenta
+
+1.  Selecciona tu frecuencia de sincronización (la predeterminada suele estar bien).
+2.  Toca **Siguiente**.
+3.  **Nombre de la cuenta (opcional):** Introduce "Davnode" o un nombre para identificar esta bandeja de entrada.
+4.  **Tu nombre:** Introduce el nombre que se mostrará en los mensajes enviados.
+5.  Toca **Siguiente** para finalizar.
+
+---
+
+## Solución de problemas
+
+### "No se pudo abrir la conexión"
+
+Si obtienes un error de conexión, es posible que debas verificar manualmente los ajustes de seguridad y los puertos.
+
+1.  Abre **Gmail**, toca el icono de **Menú (≡)** > **Ajustes**.
+2.  Toca en tu **cuenta Davnode**.
+3.  Desplázate hacia abajo hasta la sección **Ajustes del servidor**.
+
+#### Comprobar ajustes de entrada
+
+- Toca **Ajustes de entrada**.
+- **Servidor:** `mail.davnode.me`
+- **Puerto:** `993`
+- **Tipo de seguridad:** `SSL/TLS`
+
+#### Comprobar ajustes de salida
+
+- Toca **Ajustes de salida**.
+- **Servidor:** `mail.davnode.me`
+- **Puerto:** `465`
+- **Tipo de seguridad:** `SSL/TLS`
+- **Requerir inicio de sesión:** Activado (On).
+
+Si el puerto `465` está bloqueado en tu red, prueba el puerto `8465` con **SSL/TLS** o `587` con **STARTTLS**.
+
+### Notificaciones
+
+Si no estás recibiendo notificaciones de correos nuevos:
+
+1.  Ve a **Ajustes** de Gmail > Selecciona tu cuenta.
+2.  Toca **Notificaciones**.
+3.  Selecciona **Todas** en lugar de "Solo prioridad alta".

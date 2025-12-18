@@ -1,0 +1,76 @@
+---
+title: Thunderbird (Desktop)
+description: How to sync Davnode Calendar and Contacts using Mozilla Thunderbird on Windows, macOS, or Linux.
+icon: "computer"
+---
+
+# Syncing with Thunderbird
+
+Mozilla Thunderbird natively supports CalDAV and CardDAV standards, making it an excellent choice for desktop users on any operating system.
+
+## Server Settings
+
+You will need the following settings to configure your account:
+
+| Service                | Server            | Port  | Encryption |
+| :--------------------- | :---------------- | :---- | :--------- |
+| **CalDAV** (Calendar)  | `mail.davnode.me` | `443` | SSL/HTTPS  |
+| **CardDAV** (Contacts) | `mail.davnode.me` | `443` | SSL/HTTPS  |
+
+---
+
+<Note>
+  We recommend to always use an **app password** for connecting calendars and
+  contacts.
+</Note>
+
+## 1. Add Calendar (CalDAV)
+
+To add your Davnode calendar to Thunderbird:
+
+1. Open Thunderbird.
+2. Click the **Calendar icon** in the left-hand navigation bar (or press `Ctrl` + `Shift` + `C`).
+3. In the left calendar pane, right-click in the empty space below your existing calendars and select **New Calendar...**
+4. Select **On the Network** and click **Next**.
+5. Fill in the connection details:
+   - **Username:** Your full Davnode email address.
+   - **Location:** `https://mail.davnode.me`
+   - **Offline Support:** Checked (Recommended).
+6. Click **Find Calendars**.
+7. You will be prompted for your **Password**. Enter your Davnode password and check "Use Password Manager to remember this password."
+8. Select the calendars you wish to subscribe to from the list.
+9. Click **Subscribe**.
+
+## 2. Add Contacts (CardDAV)
+
+To add your Davnode address book to Thunderbird:
+
+1. Click the **Address Book icon** in the left-hand navigation bar (or press `Ctrl` + `Shift` + `B`).
+2. Click the arrow next to the **New Address Book** button in the top toolbar.
+3. Select **Add CardDAV Address Book**.
+4. Enter the following details:
+   - **Username:** Your full Davnode email address.
+   - **Location:** `https://mail.davnode.me`
+5. Click **Continue**.
+6. Enter your Davnode password if prompted.
+7. Thunderbird will validate the connection. Click **Continue** again.
+8. Your Davnode contacts will now appear in the left sidebar under their own address book.
+
+---
+
+## Troubleshooting
+
+### "Calendar Not Found"
+
+If Thunderbird cannot automatically discover the calendars using the base URL:
+
+1. Try using the specific path to your user's calendar. The standard format is often:
+   `https://mail.davnode.me/calendars/YOUR_EMAIL_ADDRESS/default/`
+
+### Read-Only Mode
+
+If you can view events but cannot edit them:
+
+1. Right-click the Davnode calendar in the sidebar and select **Properties**.
+2. Ensure **Read-only** is unchecked.
+3. If it remains read-only, check your network connection; Thunderbird often locks calendars if it cannot reach the server to sync changes.

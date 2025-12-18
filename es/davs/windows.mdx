@@ -1,0 +1,115 @@
+---
+title: Windows
+description: Cómo sincronizar Calendario y Contactos de Davnode en Windows usando Thunderbird o Outlook.
+icon: "windows"
+---
+
+# Sincronización con Windows
+
+Esta guía explica cómo configurar Davnode en Windows.
+
+> **Nota:** La aplicación nativa "Correo y Calendario" y el "Nuevo Outlook para Windows" no soportan actualmente servidores genéricos CalDAV/CardDAV. Recomendamos usar **Thunderbird** o **Outlook Classic** con un plugin.
+
+## Ajustes del Servidor
+
+Ten a mano estos ajustes para la configuración:
+
+| Servicio                | Servidor          | Puerto | Cifrado   |
+| :---------------------- | :---------------- | :----- | :-------- |
+| **CalDAV** (Calendario) | `mail.davnode.me` | `443`  | SSL/HTTPS |
+| **CardDAV** (Contactos) | `mail.davnode.me` | `443`  | SSL/HTTPS |
+
+---
+
+## Opción 1: Mozilla Thunderbird (Recomendado)
+
+## Thunderbird soporta CalDAV y CardDAV de forma nativa sin plugins adicionales.
+
+### 1. Añadir Calendario (CalDAV)
+
+1. Abre Thunderbird y cambia a la pestaña **Calendario**.
+2. En la barra lateral izquierda, haz clic derecho y selecciona **Nuevo calendario...**
+3. Selecciona **En la red** y haz clic en **Siguiente**.
+4. Introduce el **Nombre de usuario** (tu correo Davnode).
+5. Para **Ubicación**, introduce la URL del servidor:
+   `https://mail.davnode.me`
+   _(O la URL específica del calendario si tu configuración requiere una ruta completa)_
+6. Haz clic en **Buscar calendarios**.
+7. Introduce tu contraseña de Davnode cuando se solicite.
+8. Selecciona los calendarios que deseas sincronizar y haz clic en **Suscribirse**.
+
+### 2. Añadir Contactos (CardDAV)
+
+1. Abre la pestaña **Libreta de direcciones** en Thunderbird.
+2. Haz clic en la flecha junto a **Nueva libreta de direcciones** y selecciona **Añadir libreta de direcciones CardDAV**.
+3. Introduce tu **Nombre de usuario** (correo Davnode) y **Ubicación**:
+   `https://mail.davnode.me`
+4. Haz clic en **Continuar**.
+5. Introduce tu contraseña si se solicita.
+6. Thunderbird detectará tus libretas de direcciones. Haz clic en **Continuar** para finalizar.
+
+---
+
+## Opción 2: Microsoft Outlook (Classic)
+
+Outlook no soporta CalDAV/CardDAV de forma nativa. Debes instalar un plugin. Recomendamos el plugin gratuito de código abierto **Outlook CalDav Synchronizer**.
+
+### 1. Instalar Plugin
+
+1. Descarga e instala [Outlook CalDav Synchronizer](https://caldavsynchronizer.org/).
+2. Reinicia Outlook. Verás una nueva pestaña **CalDav Synchronizer** en la cinta superior.
+
+### 2. Configurar Calendario
+
+<Note>
+  Recomendamos utilizar siempre una **contraseña de aplicación** para conectar
+  calendarios y contactos.
+</Note>
+
+1. Haz clic en **CalDav Synchronizer** > **Synchronization Profiles** (Perfiles de sincronización).
+2. Haz clic en el icono **+** (Más) para añadir un nuevo perfil.
+3. Selecciona **Generic CalDAV/CardDAV** y haz clic en **OK**.
+4. Configura el perfil:
+   - **Name (Nombre):** Calendario Davnode
+   - **Outlook Folder (Carpeta Outlook):** Selecciona tu carpeta de Calendario.
+   - **DAV URL:** `https://mail.davnode.me/`
+   - **Username (Usuario):** Tu correo Davnode.
+   - **Password (Contraseña):** Tu contraseña de Davnode.
+5. Haz clic en **Test or discover settings** (Probar o descubrir ajustes).
+6. Selecciona tu recurso de calendario y haz clic en **OK**.
+
+### 3. Configurar Contactos
+
+<Note>
+  Recomendamos utilizar siempre una **contraseña de aplicación** para conectar
+  calendarios y contactos.
+</Note>
+
+1. En la ventana **Synchronization Profiles**, haz clic en **+** de nuevo.
+2. Selecciona **Generic CalDAV/CardDAV**.
+3. Configura el perfil:
+   - **Name (Nombre):** Contactos Davnode
+   - **Outlook Folder (Carpeta Outlook):** Selecciona tu carpeta de Contactos.
+   - **DAV URL:** `https://mail.davnode.me/`
+   - **Username (Usuario):** Tu correo Davnode.
+   - **Password (Contraseña):** Tu contraseña de Davnode.
+4. Haz clic en **Test or discover settings**.
+5. Selecciona tu recurso de libreta de direcciones y haz clic en **OK**.
+
+---
+
+## Solución de problemas
+
+### "Calendario no encontrado" en Thunderbird
+
+Si Thunderbird no puede detectar automáticamente el calendario en la URL base:
+
+- Intenta introducir la ruta completa a tu calendario específico si la conoces (ej. `https://mail.davnode.me/calendars/usuario@davnode.me/default/`).
+
+### Problemas de sincronización del plugin de Outlook
+
+Si Outlook no se está actualizando:
+
+1. Ve a la pestaña **CalDav Synchronizer**.
+2. Haz clic en **Synchronize Now** para forzar una actualización.
+3. Revisa **Reports** para ver si hay errores de autenticación (asegúrate de que tu contraseña no haya cambiado).

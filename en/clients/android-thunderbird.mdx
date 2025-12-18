@@ -1,0 +1,113 @@
+---
+title: "Android (Thunderbird)"
+description: "A guide to setting up your Davnode email using the Thunderbird app on Android, including importing settings from Desktop."
+icon: "android"
+---
+
+<Note>
+  Thunderbird is the **recommended** way to use Davnode email on Android.
+</Note>
+
+# Download [Thunderbird](https://play.google.com/store/apps/details?id=net.thunderbird.android) from the Google Play Store
+
+# Connect Davnode to Thunderbird (Android)
+
+There are two ways to set up your **Davnode** email on the Thunderbird Android app:
+
+1.  **Import from Desktop:** Scan a QR code from your computer (Recommended).
+2.  **Manual Setup:** Enter server settings manually.
+
+---
+
+## Method 1: Import from Desktop (Recommended)
+
+If you already have Thunderbird set up on your computer, you can transfer your account settings directly to your phone without typing any passwords or server details.
+
+### On your Computer
+
+1.  Open **Thunderbird** on your desktop.
+2.  Click the **Menu (≡)** button (top right).
+3.  Select **Tools** > **Export for Mobile**.
+4.  Select the accounts you want to export, check the `Include all accounts passwords` option and then click `Export`.
+5.  A QR code will appear on your screen.
+
+### On your Android Device
+
+1.  Open the **Thunderbird** app.
+2.  On the welcome screen, look for the option **Import from Desktop**.
+3.  Tap the button and grant camera permissions if prompted.
+4.  Scan the QR code displayed on your computer screen.
+5.  Confirm the import. Your Davnode account is now ready to use.
+
+---
+
+## Method 2: Manual Setup
+
+If you do not use the desktop version, follow these steps to connect manually.
+
+### Server Settings Reference
+
+| Setting                  | Protocol | Hostname          | Port   | Security |
+| :----------------------- | :------- | :---------------- | :----- | :------- |
+| **Incoming**             | IMAP     | `mail.davnode.me` | `993`  | SSL/TLS  |
+| **Outgoing**             | SMTP     | `mail.davnode.me` | `465`  | SSL/TLS  |
+| **Outgoing alternative** | SMTP     | `mail.davnode.me` | `8465` | SSL/TLS  |
+| **Outgoing alternative** | SMTP     | `mail.davnode.me` | `587`  | STARTTLS |
+
+### Step-by-Step Configuration
+
+1.  Open the **Thunderbird** app.
+2.  Tap **Next** on the welcome screen (or "Add Account").
+3.  Enter your **Email Address**.
+4.  Tap **Manual Setup**.
+    - _Note: Always choose Manual Setup to ensure the correct `davnode.me` hostnames are used._
+
+<Note>
+  We recommend to always use an **app password** for connecting mail clients.
+</Note>
+
+#### Incoming Server (IMAP)
+
+1.  **Protocol:** Ensure `IMAP` is selected.
+2.  **Password:** Enter your email password.
+3.  **Username:** Ensure this is your **full email address**.
+4.  **IMAP Server:** Enter `mail.davnode.me`.
+5.  **Security:** Select `SSL/TLS`.
+6.  **Port:** Ensure it is set to `993`.
+7.  Tap **Next**.
+
+#### Outgoing Server (SMTP)
+
+1.  **SMTP Server:** Enter `mail.davnode.me`.
+2.  **Security:** Select `SSL/TLS`.
+3.  **Port:** Ensure it is set to `465`.
+4.  **Require Sign-in:** Checked (On).
+5.  **Username:** Your full email address.
+6.  **Authentication:** `Normal password`.
+7.  Tap **Next**.
+
+#### Final Options
+
+1.  **Folder poll frequency:** Choose how often to check for mail.
+2.  **Enable Push Mail:** Checked (Recommended).
+3.  **Give this account a name:** Enter "Davnode".
+4.  **Your name:** Enter the name displayed to recipients.
+5.  Tap **Done**.
+
+---
+
+## Troubleshooting
+
+### "Cannot Connect to Server"
+
+- **Check Spacing:** Ensure no extra spaces exist at the end of `mail.davnode.me` (common with mobile autocorrect).
+- **Verify SSL:** Ensure you selected **SSL/TLS** for ports `993` and `465`, not "STARTTLS".
+- If port `465` is blocked on your network, try port `8465` with **SSL/TLS** or port `587` with **STARTTLS**.
+
+### Notifications Delayed?
+
+Thunderbird requires a background connection for instant notifications.
+
+1.  Go to Android **Settings** > **Apps** > **Thunderbird**.
+2.  Tap **Battery**.
+3.  Select **Unrestricted** (or "Don't optimize").

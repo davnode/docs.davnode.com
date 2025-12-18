@@ -1,0 +1,88 @@
+---
+title: "macOS"
+description: "Instrucciones para configurar tu correo Davnode en Apple Mail para macOS."
+icon: "apple"
+---
+
+# Conectar Davnode a macOS Mail
+
+Esta guía cubre cómo configurar tu cuenta de correo **Davnode** utilizando la aplicación nativa Mail en macOS.
+
+## Requisitos previos
+
+- Tu **dirección de correo Davnode**.
+- Tu **contraseña** de correo o **contraseña de aplicación (recomendado)**.
+- macOS Mail instalado (por defecto).
+
+<Note>
+  Recomendamos utilizar siempre una **contraseña de aplicación (app password)**
+  para conectar clientes de correo.
+</Note>
+
+---
+
+## Referencia de Configuración del Servidor
+
+Utiliza estos ajustes si macOS solicita los detalles del servidor manualmente durante la configuración.
+
+| Configuración            | Protocolo | Nombre de host    | Puerto | Seguridad |
+| :----------------------- | :-------- | :---------------- | :----- | :-------- |
+| **Entrante**             | IMAP      | `mail.davnode.me` | `993`  | SSL/TLS   |
+| **Saliente**             | SMTP      | `mail.davnode.me` | `465`  | SSL/TLS   |
+| **Saliente alternativo** | SMTP      | `mail.davnode.me` | `8465` | SSL/TLS   |
+| **Saliente alternativo** | SMTP      | `mail.davnode.me` | `587`  | STARTTLS  |
+
+> **Nota:** Tu nombre de usuario es siempre tu dirección de correo completa de Davnode.
+
+---
+
+## Instrucciones de Configuración
+
+1.  Abre la aplicación **Mail** en tu Mac.
+2.  Si es tu primera cuenta, el diálogo de configuración se abrirá automáticamente.
+    - _Si ya tienes cuentas:_ Ve a la barra de menú, selecciona **Mail** > **Añadir cuenta...**
+3.  Selecciona **Otra cuenta de Mail...** de la lista de proveedores.
+4.  Haz clic en **Continuar**.
+5.  Introduce los detalles de tu cuenta:
+    - **Nombre:** Tu nombre para mostrar.
+    - **Dirección de correo:** Tu dirección de correo completa de Davnode.
+    - **Contraseña:** Tu contraseña de correo.
+6.  Haz clic en **Iniciar sesión**.
+
+### Configurar Detalles del Servidor
+
+macOS intentará verificar la cuenta. Si no puede verificarla automáticamente, pedirá detalles adicionales:
+
+1.  **Tipo de cuenta:** Selecciona `IMAP`.
+2.  **Servidor de correo entrante:** `mail.davnode.me`
+3.  **Servidor de correo saliente:** `mail.davnode.me`
+4.  Haz clic en **Iniciar sesión**.
+5.  Selecciona las apps que deseas usar con esta cuenta (Mail, Notas) y haz clic en **Listo** (o Aceptar).
+
+---
+
+## Verificar Puertos (Solución de problemas)
+
+Apple Mail a veces intenta gestionar los ajustes de conexión automáticamente, lo que ocasionalmente puede predeterminar puertos incorrectos. Si no puedes enviar o recibir correo, verifica los ajustes:
+
+1.  Abre **Mail**.
+2.  En la barra de menú superior, ve a **Mail** > **Ajustes...** (o **Preferencias** en versiones antiguas de macOS).
+3.  Haz clic en la pestaña **Cuentas** y selecciona tu cuenta **Davnode**.
+4.  Haz clic en la pestaña **Ajustes del servidor**.
+
+### Entrante (IMAP)
+
+- Desmarca **Gestionar automáticamente los ajustes de la conexión**.
+- **Puerto:** Asegúrate de que esté configurado en `993`.
+- **Usar TLS/SSL:** Marcado.
+
+### Saliente (SMTP)
+
+- Desmarca **Gestionar automáticamente los ajustes de la conexión**.
+- **Puerto:** Asegúrate de que esté configurado en `465`.
+- **Usar TLS/SSL:** Marcado.
+- **Autenticación:** Contraseña.
+
+> **Consejo:** Si el puerto 465 no te funciona debido a restricciones de red, puedes probar el puerto `8465` (SSL/TLS) o `587` (STARTTLS).
+
+6.  Haz clic en **Guardar** si se solicita.

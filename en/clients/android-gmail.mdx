@@ -1,0 +1,110 @@
+---
+title: "Android (Gmail)"
+description: "A guide to setting up your Davnode email on Android using the Gmail app."
+icon: "android"
+---
+
+<Note>
+  We **recommend** to use the
+  **[Thunderbird](https://play.google.com/store/apps/details?id=net.thunderbird.android)**
+  app to use Davnode email on Android.
+</Note>
+
+# Connect Davnode to Android
+
+This guide will help you set up your **Davnode** email account on your Android phone or tablet using the default Gmail app.
+
+## Prerequisites
+
+- Your **Davnode email address**.
+- Your email address **password** or **app password (recommended)**.
+- The **Gmail** app (pre-installed on most Android devices).
+
+<Note>
+  We recommend to always use an **app password** for connecting mail clients.
+</Note>
+
+---
+
+## Server Settings Reference
+
+Keep these settings handy. Android often attempts to guess the server name based on your email domain, so **you will likely need to edit the "Server" field manually**.
+
+| Setting                  | Protocol | Hostname          | Port   | Security |
+| :----------------------- | :------- | :---------------- | :----- | :------- |
+| **Incoming**             | IMAP     | `mail.davnode.me` | `993`  | SSL/TLS  |
+| **Outgoing**             | SMTP     | `mail.davnode.me` | `465`  | SSL/TLS  |
+| **Outgoing alternative** | SMTP     | `mail.davnode.me` | `8465` | SSL/TLS  |
+| **Outgoing alternative** | SMTP     | `mail.davnode.me` | `587`  | STARTTLS |
+
+---
+
+## Setup Instructions
+
+1.  Open the **Gmail** app on your Android device.
+2.  Tap your **profile picture** in the top right corner.
+3.  Select **Add another account**.
+4.  On the "Set up email" screen, select **Other**.
+5.  Enter your **full Davnode email address** and tap **Next**.
+6.  Select **Personal (IMAP)**.
+7.  Enter your **password** and tap **Next**.
+
+### Incoming Server Settings
+
+1.  **Username:** Ensure this is your full email address.
+2.  **Password:** Your email password.
+3.  **Server:** Change this to `mail.davnode.me`.
+    - _Note: Android may default this to your domain (e.g., `example.com`). You must change it._
+4.  Tap **Next**.
+
+### Outgoing Server Settings
+
+1.  **Username:** Ensure this is your full email address.
+2.  **Password:** Your email password.
+3.  **SMTP Server:** Change this to `mail.davnode.me`.
+4.  Tap **Next**.
+
+### Account Options
+
+1.  Select your sync frequency (default is usually fine).
+2.  Tap **Next**.
+3.  **Account Name (optional):** Enter "Davnode" or a name to identify this inbox.
+4.  **Your Name:** Enter the name displayed on sent messages.
+5.  Tap **Next** to finish.
+
+---
+
+## Troubleshooting
+
+### "Couldn't Open Connection"
+
+If you get a connection error, you may need to manually verify the security settings and ports.
+
+1.  Open **Gmail**, tap the **Menu (≡)** icon > **Settings**.
+2.  Tap on your **Davnode account**.
+3.  Scroll down to the **Server settings** section.
+
+#### Check Incoming Settings
+
+- Tap **Incoming settings**.
+- **Server:** `mail.davnode.me`
+- **Port:** `993`
+- **Security type:** `SSL/TLS`
+
+#### Check Outgoing Settings
+
+- Tap **Outgoing settings**.
+- **Server:** `mail.davnode.me`
+- **Port:** `465`
+- **Security type:** `SSL/TLS`
+- **Require sign-in:** Toggled **On**.
+
+If port `465` is blocked on your network, try port `8465` with **SSL/TLS** or port `587` with **STARTTLS**.
+
+### Notifications
+
+If you are not receiving notifications for new emails:
+
+1.  Go to Gmail **Settings** > Select your account.
+2.  Tap **Notifications**.
+3.  Select **All** instead of "High priority only".

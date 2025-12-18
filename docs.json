@@ -1,0 +1,148 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Davnode Docs",
+  "colors": {
+    "primary": "#0ea5e9",
+    "light": "#0ea5e9",
+    "dark": "#0284c7"
+  },
+  "favicon": "/favicon.ico",
+  "navigation": {
+    "languages": [
+      {
+        "language": "en",
+        "groups": [
+          {
+            "group": "Getting started",
+            "pages": ["en/index"]
+          },
+          {
+            "group": "Custom domains",
+            "pages": ["en/custom-domains/custom-domain-setup"]
+          },
+          {
+            "group": "Mailboxes",
+            "pages": [
+              "en/mailboxes/create-mailbox",
+              "en/mailboxes/aliases",
+              "en/mailboxes/app-passwords"
+            ]
+          },
+          {
+            "group": "Mail client configuration",
+            "pages": [
+              "en/clients/macos",
+              "en/clients/windows",
+              "en/clients/thunderbird",
+              "en/clients/ios",
+              "en/clients/android-thunderbird",
+              "en/clients/android-gmail",
+              "en/clients/general"
+            ]
+          },
+          {
+            "group": "Calendar & contacts",
+            "pages": [
+              "en/davs/macos",
+              "en/davs/windows",
+              "en/davs/thunderbird",
+              "en/davs/ios",
+              "en/davs/android",
+              "en/davs/davx5"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "es",
+        "groups": [
+          {
+            "group": "Empezar",
+            "pages": ["es/index"]
+          },
+          {
+            "group": "Dominios personalizados",
+            "pages": ["es/custom-domains/custom-domain-setup"]
+          },
+          {
+            "group": "Buzones de correo",
+            "pages": [
+              "es/mailboxes/create-mailbox",
+              "es/mailboxes/aliases",
+              "es/mailboxes/app-passwords"
+            ]
+          },
+          {
+            "group": "Configuración de clientes de correo",
+            "pages": [
+              "es/clients/macos",
+              "es/clients/windows",
+              "es/clients/thunderbird",
+              "es/clients/ios",
+              "es/clients/android-thunderbird",
+              "es/clients/android-gmail",
+              "es/clients/general"
+            ]
+          },
+          {
+            "group": "Calendario y contactos",
+            "pages": [
+              "es/davs/macos",
+              "es/davs/windows",
+              "es/davs/thunderbird",
+              "es/davs/ios",
+              "es/davs/android",
+              "es/davs/davx5"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Blog",
+          "href": "https://davnode.substack.com",
+          "icon": "newspaper"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "https://cdn.davnode.com/davnode_light_unframmed.webp",
+    "dark": "https://cdn.davnode.com/davnode_dark_unframmed.webp"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:support@davnode.com"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://app.davnode.com"
+    }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/mintlify",
+      "github": "https://github.com/mintlify",
+      "linkedin": "https://linkedin.com/company/mintlify"
+    }
+  }
+}

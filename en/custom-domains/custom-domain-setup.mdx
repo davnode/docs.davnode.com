@@ -1,0 +1,306 @@
+---
+title: "Custom domain setup"
+description: "Configure your custom domain and add the necessary DNS records."
+icon: "globe-pointer"
+---
+
+## 1. Register the Domain in Davnode
+
+Navigate to your Davnode dashboard and add your intended custom domain.
+
+## 2. Configure DNS Records
+
+Access the DNS management console of your domain registrar (e.g., Cloudflare, Porkbun, Spaceship, Namecheap, GoDaddy, Dynadot).
+
+> **Recommendation**.
+> For domain registration, we recommend **[Porkbun](https://porkbun.com)** or **[Spaceship](https://www.spaceship.com)**.
+> For DNS management, we recommend **[Cloudflare](https://www.cloudflare.com)**.
+
+### Step 2.1: Verify Domain Ownership
+
+To activate your custom domain, you must prove ownership by adding a specific TXT record.
+
+1.  Copy the unique verification token from your Davnode domain dashboard.
+2.  Add the following record to your DNS provider:
+
+DNS Zone file
+
+| Type | Name | Content                              | TTL  |
+| :--- | :--- | :----------------------------------- | :--- |
+| TXT  | @    | "PASTE_VALUE_FROM_DAVNODE_DASHBOARD" | Auto |
+
+### Step 2.2: Add Service Records
+
+Add the following records to configure email delivery, security protocols, and service discovery.
+
+**Bulk Import Method (Recommended for Cloudflare users)**: You can copy the block below, save it as a dns.txt file, and import it directly into your Cloudflare DNS dashboard.
+
+```
+@                  IN MX      10 mail.davnode.me.
+ed._domainkey      IN CNAME   ed._domainkey.davnode.me.
+rsa._domainkey     IN CNAME   rsa._domainkey.davnode.me.
+mta-sts            IN CNAME   mail.davnode.me.
+_mta-sts           IN CNAME   _mta-sts.davnode.me.
+_smtp._tls         IN CNAME   _smtp._tls.davnode.me.
+@                  IN TXT     "v=spf1 include:_spf.davnode.me ~all"
+_dmarc             IN CNAME   _dmarc.davnode.me.
+autoconfig         IN CNAME   mail.davnode.me.
+autodiscover       IN CNAME   mail.davnode.me.
+_caldavs._tcp      IN CNAME   _caldavs._tcp.davnode.me.
+_carddavs._tcp     IN CNAME   _carddavs._tcp.davnode.me.
+```
+
+> **Important: Cloudflare Configuration**. If you are using Cloudflare, you must disable the Proxy Status for all Davnode records. Ensure the cloud icon is set to DNS Only (Grey Cloud), not Proxied (Orange Cloud).
+
+## 3. Verify DNS Propagation
+
+Once you have added the records, return to your Davnode dashboard.
+
+Click the `Verify DNS` button.
+
+The system will check for the propagated records.
+
+> Note: DNS propagation can take anywhere from a few minutes to 24 hours depending on your provider. If verification fails immediately, please wait a few minutes and try again.
+
+---
+
+## Understanding the `@` in DNS Zone Files
+
+### What Does `@` Mean?
+
+The `@` symbol is simply a placeholder used in your DNS settings to stand for your entire domain name. It’s the easiest way to refer to the **main address** of your website.
+
+Think of it as a nickname for your primary domain.
+
+<Note>
+  If your website is `mycustomdomain.com`, putting **`@`** in the **Name** field
+  is the exact same thing as writing out **`mycustomdomain.com`** every time.
+</Note>
+
+### Why Use the Shortcut?
+
+1.  **Saves Time:** It's faster to type `@` than the full domain name.
+2.  **Keeps it Clean:** It makes your configuration file much easier to read and manage.
+
+### Practical Equivalence
+
+Both of these records do the exact same job:
+
+| Type | Name  | Mail server     | TTL  | Priority |
+| :--- | :---- | :-------------- | :--- | :------- |
+| MX   | **@** | mail.davnode.me | Auto | 10       |
+
+**_is the simple way of writing:_**
+
+| Type | Name               | Mail server     | TTL  | Priority |
+| :--- | :----------------- | :-------------- | :--- | :------- |
+| MX   | mycustomdomain.com | mail.davnode.me | Auto | 10       |
+
+---
+
+## Appendix: DNS Record Reference
+
+Below is a detailed explanation of the records configured in the previous step.
+
+### MX Record (Mail Exchange)
+
+Function: Routes incoming email. Directs the internet to deliver emails addressed to your domain to Davnode's mail servers.
+
+DNS Zone file
+
+| Type | Name | Mail server     | TTL  | Priority |
+| :--- | :--- | :-------------- | :--- | :------- |
+| MX   | @    | mail.davnode.me | Auto | 10       |
+
+```plaintext Mail server
+mail.davnode.me
+```
+
+### TXT Record (SPF)
+
+Function: Sender Policy Framework (Anti-Spam). Authorizes Davnode's servers to send email on your behalf, preventing your messages from being flagged as spam by receivers.
+
+DNS Zone file
+
+| Type | Name | Content                                | TTL  |
+| :--- | :--- | :------------------------------------- | :--- |
+| TXT  | @    | "v=spf1 include:\_spf.davnode.me ~all" | Auto |
+
+```plaintext Content
+"v=spf1 include:_spf.davnode.me ~all"
+```
+
+### CNAME (DMARC)
+
+Function: Domain-based Message Authentication, Reporting, and Conformance. Instructs external email providers on how to handle emails that fail authentication (e.g., attempts to spoof your domain).
+
+DNS Zone file
+
+| Type  | Name    | Target             | TTL  |
+| :---- | :------ | :----------------- | :--- |
+| CNAME | \_dmarc | \_dmarc.davnode.me | Auto |
+
+<CodeGroup>
+
+```plaintext Name
+_dmarc
+```
+
+```plaintext Target
+_dmarc.davnode.me
+```
+
+</CodeGroup>
+
+### CNAME (DKIM)
+
+Function: DomainKeys Identified Mail. Adds a cryptographic signature to your emails, allowing the receiver to verify that the email was actually sent by you and was not altered in transit.
+
+DNS Zone file
+
+| Type  | Name            | Target                     | TTL  |
+| :---- | :-------------- | :------------------------- | :--- |
+| CNAME | ed.\_domainkey  | ed.\_domainkey.davnode.me  | Auto |
+| CNAME | rsa.\_domainkey | rsa.\_domainkey.davnode.me | Auto |
+
+<CodeGroup>
+
+```plaintext Name (ed._domainkey)
+ed._domainkey
+```
+
+```plaintext Target (ed._domainkey)
+ed._domainkey.davnode.me
+```
+
+</CodeGroup>
+
+<CodeGroup>
+
+```plaintext Name (rsa._domainkey)
+rsa._domainkey
+```
+
+```plaintext Target (rsa._domainkey)
+rsa._domainkey.davnode.me
+```
+
+</CodeGroup>
+
+### CNAME (MTA-STS)
+
+Function: Mail Transfer Agent Strict Transport Security. Enforces TLS encryption for incoming emails, ensuring that messages sent to you are secure while in transit.
+
+DNS Zone file
+
+| Type  | Name         | Target                  | TTL  |
+| :---- | :----------- | :---------------------- | :--- |
+| CNAME | mta-sts      | mail.davnode.me         | Auto |
+| CNAME | \_mta-sts    | \_mta-sts.davnode.me    | Auto |
+| CNAME | \_smtp.\_tls | \_smtp.\_tls.davnode.me | Auto |
+
+<CodeGroup>
+
+```plaintext Name (mta-sts)
+mta-sts
+```
+
+```plaintext Target (mta-sts)
+mail.davnode.me
+```
+
+</CodeGroup>
+
+<CodeGroup>
+
+```plaintext Name (_mta-sts)
+_mta-sts
+```
+
+```plaintext Target (_mta-sts)
+_mta-sts.davnode.me
+```
+
+</CodeGroup>
+
+<CodeGroup>
+
+```plaintext Name (_smtp._tls)
+_smtp._tls
+```
+
+```plaintext Target (_smtp._tls)
+_smtp._tls.davnode.me
+```
+
+</CodeGroup>
+
+### CNAME (Autodiscover)
+
+Function: Client Auto-Configuration. Allows email clients (Outlook, Apple Mail, Thunderbird) to automatically detect server settings, requiring only your email and password for setup.
+
+DNS Zone file
+
+| Type  | Name         | Target          | TTL  |
+| :---- | :----------- | :-------------- | :--- |
+| CNAME | autoconfig   | mail.davnode.me | Auto |
+| CNAME | autodiscover | mail.davnode.me | Auto |
+
+<CodeGroup>
+
+```plaintext Name (autoconfig)
+autoconfig
+```
+
+```plaintext Target (autoconfig)
+mail.davnode.me
+```
+
+</CodeGroup>
+
+<CodeGroup>
+
+```plaintext Name (autodiscover)
+autodiscover
+```
+
+```plaintext Target (autodiscover)
+mail.davnode.me
+```
+
+</CodeGroup>
+
+### CNAME (DAVs)
+
+Function: Service Discovery. Enables automatic discovery for Calendar (CalDAV) and Contact (CardDAV) synchronization across devices.
+
+DNS Zone file
+
+| Type  | Name             | Target                      | TTL  |
+| :---- | :--------------- | :-------------------------- | :--- |
+| CNAME | \_caldavs.\_tcp  | \_caldavs.\_tcp.davnode.me  | Auto |
+| CNAME | \_carddavs.\_tcp | \_carddavs.\_tcp.davnode.me | Auto |
+
+<CodeGroup>
+
+```plaintext Name (_caldavs._tcp)
+_caldavs._tcp
+```
+
+```plaintext Target (_caldavs._tcp)
+_caldavs._tcp.davnode.me
+```
+
+</CodeGroup>
+
+<CodeGroup>
+
+```plaintext Name (_carddavs._tcp)
+_carddavs._tcp
+```
+
+```plaintext Target (_carddavs._tcp)
+_carddavs._tcp.davnode.me
+```
+
+</CodeGroup>

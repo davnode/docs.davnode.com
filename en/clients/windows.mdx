@@ -1,0 +1,104 @@
+---
+title: "Windows"
+description: A step-by-step guide to configuring your Davnode email on the Windows Mail app and the New Outlook.
+icon: "windows"
+---
+
+# Connect Davnode to Windows
+
+This guide covers how to set up your **Davnode** email account on the default **Mail** app for Windows 10 and 11.
+
+## Prerequisites
+
+- Your **Davnode email address**.
+- Your email address **password** or **app password (recommended)**.
+- An internet connection.
+
+<Note>
+  We recommend to always use an **app password** for connecting mail clients.
+</Note>
+
+---
+
+## Server Settings Reference
+
+Windows often requires you to use "Advanced Setup" to properly connect to custom mail servers.
+
+| Setting             | Value             |
+| :------------------ | :---------------- |
+| **Incoming Server** | `mail.davnode.me` |
+| **Incoming Port**   | `993` (SSL)       |
+| **Outgoing Server** | `mail.davnode.me` |
+| **Outgoing Port**   | `465` (SSL)       |
+| **Account Type**    | IMAP4             |
+
+---
+
+## Setup Instructions
+
+1.  Open the **Mail** app on your PC.
+2.  Select **Accounts** > **+ Add account** from the left or right sidebar.
+3.  Scroll down and select **Advanced setup** (icon with gears).
+    - _Note: Do not select "Other account (POP, IMAP)" initially, as it often fails to detect the correct ports. "Advanced setup" is more reliable._
+4.  Select **Internet email**.
+5.  Enter your account details as follows:
+
+### 1. Account Details
+
+- **Email address:** Your full Davnode email address.
+- **User name:** Your full Davnode email address.
+- **Password:** Your email password.
+- **Account name:** Davnode.
+- **Send your messages using this name:** Your display name (e.g., John Doe).
+
+### 2. Server Information
+
+- **Incoming email server:** `mail.davnode.me`
+- **Account type:** Select **IMAP4**.
+- **Outgoing (SMTP) email server:** `mail.davnode.me`
+
+### 3. Security Settings
+
+Ensure all the following boxes are **Checked**:
+
+- [x] Outgoing server requires authentication.
+- [x] Use the same user name and password for sending email.
+- [x] Require SSL for incoming email.
+- [x] Require SSL for outgoing email.
+
+6.  Click **Sign in**.
+7.  Click **Done**.
+
+---
+
+## Troubleshooting
+
+### "We couldn't access this account" (Error 0x800...)
+
+If Windows fails to sync after setup:
+
+1.  Right-click your **Davnode** account in the sidebar and select **Account settings**.
+2.  Click **Change mailbox sync settings**.
+3.  Click **Advanced mailbox settings**.
+4.  Verify the server addresses are appended with the port numbers in this format:
+    - **Incoming Server:** `mail.davnode.me:993:1`
+    - **Outgoing Server:** `mail.davnode.me:465:1`
+    - _(The `:1` at the end tells Windows to use SSL explicitly)._
+5.  Click **Done** and **Save**.
+
+If port `465` is blocked on your network, try port `8465` with **SSL/TLS** or port `587` with **STARTTLS**.
+
+### New Outlook for Windows
+
+If you are using the "New Outlook" (the web-based app replacing Mail):
+
+1.  Go to **Settings (Gear icon)** > **Accounts** > **Email accounts** > **Add account**.
+2.  Enter your email address and click **Continue**.
+3.  Click **Select Provider** and choose **IMAP**.
+4.  Toggle **"Show more"** to see server settings.
+5.  Enter the details manually:
+    - **IMAP Host:** `mail.davnode.me` | **Port:** `993` | **Secure Type:** `SSL / TLS`
+    - **SMTP Host:** `mail.davnode.me` | **Port:** `465` | **Secure Type:** `SSL / TLS`
+    - **IMAP/SMTP Username:** Your full email address.
+    - **IMAP/SMTP Password:** Your email password.
+6.  Click **Continue**.

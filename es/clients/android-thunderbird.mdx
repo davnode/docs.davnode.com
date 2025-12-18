@@ -1,0 +1,114 @@
+---
+title: "Android (Thunderbird)"
+description: "Una guía para configurar tu correo Davnode usando la aplicación Thunderbird en Android, incluyendo la importación de ajustes desde el Escritorio."
+icon: "android"
+---
+
+<Note>
+  Thunderbird es la forma **recomendada** de usar el correo Davnode en Android.
+</Note>
+
+# Descargar [Thunderbird](https://play.google.com/store/apps/details?id=net.thunderbird.android) desde Google Play Store
+
+# Conectar Davnode a Thunderbird (Android)
+
+Hay dos formas de configurar tu correo **Davnode** en la aplicación Thunderbird para Android:
+
+1.  **Importar desde Escritorio:** Escanea un código QR desde tu ordenador (Recomendado).
+2.  **Configuración manual:** Introduce los ajustes del servidor manualmente.
+
+---
+
+## Método 1: Importar desde Escritorio (Recomendado)
+
+Si ya tienes Thunderbird configurado en tu ordenador, puedes transferir la configuración de tu cuenta directamente a tu teléfono sin escribir contraseñas ni detalles del servidor.
+
+### En tu Ordenador
+
+1.  Abre **Thunderbird** en tu escritorio.
+2.  Haz clic en el botón de **Menú (≡)** (arriba a la derecha).
+3.  Selecciona **Herramientas** > **Exportar para móvil**.
+4.  Selecciona las cuentas que deseas exportar, marca la opción `Incluir contraseñas de todas las cuentas` y luego haz clic en `Exportar`.
+5.  Aparecerá un código QR en tu pantalla.
+
+### En tu dispositivo Android
+
+1.  Abre la aplicación **Thunderbird**.
+2.  En la pantalla de bienvenida, busca la opción **Importar desde Escritorio**.
+3.  Toca el botón y concede permisos de cámara si se solicitan.
+4.  Escanea el código QR que se muestra en la pantalla de tu ordenador.
+5.  Confirma la importación. Tu cuenta Davnode ya está lista para usar.
+
+---
+
+## Método 2: Configuración manual
+
+Si no utilizas la versión de escritorio, sigue estos pasos para conectarte manualmente.
+
+### Referencia de Configuración del Servidor
+
+| Configuración            | Protocolo | Nombre de host    | Puerto | Seguridad |
+| :----------------------- | :-------- | :---------------- | :----- | :-------- |
+| **Entrante**             | IMAP      | `mail.davnode.me` | `993`  | SSL/TLS   |
+| **Saliente**             | SMTP      | `mail.davnode.me` | `465`  | SSL/TLS   |
+| **Saliente alternativo** | SMTP      | `mail.davnode.me` | `8465` | SSL/TLS   |
+| **Saliente alternativo** | SMTP      | `mail.davnode.me` | `587`  | STARTTLS  |
+
+### Configuración paso a paso
+
+1.  Abre la aplicación **Thunderbird**.
+2.  Toca **Siguiente** en la pantalla de bienvenida (o "Añadir cuenta").
+3.  Introduce tu **Dirección de correo electrónico**.
+4.  Toca **Configuración manual**.
+    - _Nota: Elige siempre Configuración manual para asegurar que se usen los nombres de host `davnode.me` correctos._
+
+<Note>
+  Recomendamos utilizar siempre una **contraseña de aplicación (app password)**
+  para conectar clientes de correo.
+</Note>
+
+#### Servidor entrante (IMAP)
+
+1.  **Protocolo:** Asegúrate de que `IMAP` esté seleccionado.
+2.  **Contraseña:** Introduce tu contraseña de correo.
+3.  **Nombre de usuario:** Asegúrate de que sea tu **dirección de correo completa**.
+4.  **Servidor IMAP:** Introduce `mail.davnode.me`.
+5.  **Seguridad:** Selecciona `SSL/TLS`.
+6.  **Puerto:** Asegúrate de que esté configurado en `993`.
+7.  Toca **Siguiente**.
+
+#### Servidor saliente (SMTP)
+
+1.  **Servidor SMTP:** Introduce `mail.davnode.me`.
+2.  **Seguridad:** Selecciona `SSL/TLS`.
+3.  **Puerto:** Asegúrate de que esté configurado en `465`.
+4.  **Requerir inicio de sesión:** Marcado (Activado).
+5.  **Nombre de usuario:** Tu dirección de correo completa.
+6.  **Autenticación:** `Contraseña normal`.
+7.  Toca **Siguiente**.
+
+#### Opciones finales
+
+1.  **Frecuencia de comprobación de carpetas:** Elige con qué frecuencia buscar correo.
+2.  **Habilitar Push Mail:** Marcado (Recomendado).
+3.  **Dar nombre a esta cuenta:** Introduce "Davnode".
+4.  **Tu nombre:** Introduce el nombre que se mostrará a los destinatarios.
+5.  Toca **Hecho**.
+
+---
+
+## Solución de problemas
+
+### "No se puede conectar al servidor"
+
+- **Comprobar espacios:** Asegúrate de que no haya espacios adicionales al final de `mail.davnode.me` (común con el autocorrector móvil).
+- **Verificar SSL:** Asegúrate de haber seleccionado **SSL/TLS** para los puertos `993` y `465`, no "STARTTLS".
+- Si el puerto `465` está bloqueado en tu red, prueba el puerto `8465` con **SSL/TLS** o `587` con **STARTTLS**.
+
+### ¿Notificaciones retrasadas?
+
+Thunderbird requiere una conexión en segundo plano para notificaciones instantáneas.
+
+1.  Ve a **Ajustes** de Android > **Aplicaciones** > **Thunderbird**.
+2.  Toca **Batería**.
+3.  Selecciona **Sin restricciones** (o "No optimizar").

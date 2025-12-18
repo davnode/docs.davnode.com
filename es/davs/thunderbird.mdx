@@ -1,0 +1,76 @@
+---
+title: Thunderbird (Escritorio)
+description: Cómo sincronizar el Calendario y los Contactos de Davnode usando Mozilla Thunderbird en Windows, macOS o Linux.
+icon: "computer"
+---
+
+# Sincronización con Thunderbird
+
+Mozilla Thunderbird soporta nativamente los estándares CalDAV y CardDAV, lo que lo convierte en una excelente opción para usuarios de escritorio en cualquier sistema operativo.
+
+## Ajustes del Servidor
+
+Necesitarás los siguientes ajustes para configurar tu cuenta:
+
+| Servicio                | Servidor          | Puerto | Cifrado   |
+| :---------------------- | :---------------- | :----- | :-------- |
+| **CalDAV** (Calendario) | `mail.davnode.me` | `443`  | SSL/HTTPS |
+| **CardDAV** (Contactos) | `mail.davnode.me` | `443`  | SSL/HTTPS |
+
+---
+
+<Note>
+  Recomendamos utilizar siempre una **contraseña de aplicación** para conectar
+  calendarios y contactos.
+</Note>
+
+## 1. Añadir Calendario (CalDAV)
+
+Para añadir tu calendario Davnode a Thunderbird:
+
+1. Abre Thunderbird.
+2. Haz clic en el **icono de Calendario** en la barra de navegación izquierda (o presiona `Ctrl` + `Shift` + `C`).
+3. En el panel de calendario izquierdo, haz clic derecho en el espacio vacío debajo de tus calendarios existentes y selecciona **Nuevo calendario...**
+4. Selecciona **En la red** y haz clic en **Siguiente**.
+5. Rellena los detalles de conexión:
+   - **Nombre de usuario:** Tu dirección de correo completa de Davnode.
+   - **Ubicación:** `https://mail.davnode.me`
+   - **Soporte sin conexión:** Marcado (Recomendado).
+6. Haz clic en **Buscar calendarios**.
+7. Se te pedirá tu **Contraseña**. Introduce tu contraseña de Davnode y marca "Usar el administrador de contraseñas para recordar esta contraseña".
+8. Selecciona los calendarios a los que deseas suscribirte de la lista.
+9. Haz clic en **Suscribirse**.
+
+## 2. Añadir Contactos (CardDAV)
+
+Para añadir tu libreta de direcciones Davnode a Thunderbird:
+
+1. Haz clic en el **icono de Libreta de direcciones** en la barra de navegación izquierda (o presiona `Ctrl` + `Shift` + `B`).
+2. Haz clic en la flecha junto al botón **Nueva libreta de direcciones** en la barra de herramientas superior.
+3. Selecciona **Añadir libreta de direcciones CardDAV**.
+4. Introduce los siguientes detalles:
+   - **Nombre de usuario:** Tu dirección de correo completa de Davnode.
+   - **Ubicación:** `https://mail.davnode.me`
+5. Haz clic en **Continuar**.
+6. Introduce tu contraseña de Davnode si se solicita.
+7. Thunderbird validará la conexión. Haz clic en **Continuar** de nuevo.
+8. Tus contactos de Davnode aparecerán ahora en la barra lateral izquierda bajo su propia libreta de direcciones.
+
+---
+
+## Solución de problemas
+
+### "Calendario no encontrado"
+
+Si Thunderbird no puede descubrir automáticamente los calendarios usando la URL base:
+
+1. Intenta usar la ruta específica al calendario de tu usuario. El formato estándar suele ser:
+   `https://mail.davnode.me/calendars/TU_DIRECCION_DE_CORREO/default/`
+
+### Modo de solo lectura
+
+Si puedes ver eventos pero no editarlos:
+
+1. Haz clic derecho en el calendario Davnode en la barra lateral y selecciona **Propiedades**.
+2. Asegúrate de que **Solo lectura** esté desmarcado.
+3. Si permanece en solo lectura, verifica tu conexión de red; Thunderbird a menudo bloquea los calendarios si no puede contactar con el servidor para sincronizar cambios.

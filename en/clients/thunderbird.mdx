@@ -1,0 +1,91 @@
+---
+title: "Thunderbird (Desktop)"
+description: "How to configure your Davnode email on Mozilla Thunderbird."
+icon: "computer"
+---
+
+# Connect Davnode to Thunderbird
+
+This guide will help you set up your **Davnode** email account on Mozilla Thunderbird (Windows, macOS, or Linux).
+
+## Prerequisites
+
+- Your **Davnode email address**.
+- Your email address **password** or **app password (recommended)**.
+- [Mozilla Thunderbird](https://www.thunderbird.net/) installed.
+
+<Note>
+  We recommend to always use an **app password** for connecting mail clients.
+</Note>
+
+---
+
+## Server Settings Reference
+
+If you need to enter settings manually, use the reference below:
+
+| Setting                  | Protocol | Hostname          | Port   | Security |
+| :----------------------- | :------- | :---------------- | :----- | :------- |
+| **Incoming**             | IMAP     | `mail.davnode.me` | `993`  | SSL/TLS  |
+| **Outgoing**             | SMTP     | `mail.davnode.me` | `465`  | SSL/TLS  |
+| **Outgoing alternative** | SMTP     | `mail.davnode.me` | `8465` | SSL/TLS  |
+| **Outgoing alternative** | SMTP     | `mail.davnode.me` | `587`  | STARTTLS |
+
+---
+
+## Setup Instructions
+
+1.  Open **Thunderbird**.
+2.  If this is your first time opening the app, the **Account Setup** tab will appear automatically.
+    - _If not:_ Click on the **Menu (≡)** button > **New Account** > **Mail**.
+3.  Enter your details:
+    - **Your full name:** The name you want recipients to see.
+    - **Email address:** Your full Davnode email address.
+    - **Password:** Your email password.
+4.  Click **Configure manually** (This is important to ensure the correct settings are applied immediately).
+
+### Manual Configuration
+
+Thunderbird may attempt to guess the settings. Ensure the fields match the configuration below exactly.
+
+#### Incoming Server
+
+- **Protocol:** `IMAP`
+- **Hostname:** `mail.davnode.me`
+- **Port:** `993`
+- **Connection security:** `SSL/TLS`
+- **Authentication method:** `Normal password`
+- **Username:** Your full email address.
+
+#### Outgoing Server
+
+- **Protocol:** `SMTP`
+- **Hostname:** `mail.davnode.me`
+- **Port:** `465`
+- **Connection security:** `SSL/TLS`
+- **Authentication method:** `Normal password`
+- **Username:** Your full email address.
+
+### Finalizing Setup
+
+1.  Click **Re-test** to verify the connection to the Davnode servers.
+    - You should see a green bar or text indicating the configuration was found.
+2.  Click **Done**.
+3.  Thunderbird will verify your password and begin downloading your email folders.
+
+---
+
+## Troubleshooting
+
+### Connection Security Warnings
+
+If you receive a "Security Exception" warning during setup, ensure you are using the exact hostname `mail.davnode.me`.
+
+### Sending Issues (SMTP)
+
+If you can receive mail but cannot send it:
+
+1.  Right-click your account name in the sidebar and select **Settings**.
+2.  Scroll to the bottom of the left sidebar and select **Outgoing Server (SMTP)**.
+3.  Select the `mail.davnode.me` entry and click **Edit**.
+4.  If port `465` is blocked by your network, try changing the port to `8465`. You can also try port `587` and Connection security to `STARTTLS`.

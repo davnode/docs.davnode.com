@@ -1,0 +1,79 @@
+---
+title: "General"
+description: "Ajustes genéricos del servidor para configurar Davnode en Spark, Samsung Email, Evolution y otras aplicaciones de correo."
+icon: "laptop"
+---
+
+# Conectar Davnode a otros clientes
+
+Si estás usando un cliente de correo no cubierto en nuestras guías específicas (como **Spark**, **Samsung Email**, **Airmail** o **Evolution** en Linux), utiliza los ajustes de configuración manual a continuación.
+
+## Referencia de Configuración del Servidor (Guía rápida)
+
+La mayoría de los clientes de correo solicitarán una configuración "Avanzada" o "Manual". Introduce estos valores exactamente como aparecen.
+
+### Correo Entrante (IMAP)
+
+Recomendado para sincronizar correos entre múltiples dispositivos (teléfono, portátil, tablet).
+
+| Configuración           | Valor                                                 |
+| :---------------------- | :---------------------------------------------------- |
+| **Nombre de host**      | `mail.davnode.me`                                     |
+| **Puerto**              | `993`                                                 |
+| **Seguridad / Cifrado** | SSL / TLS                                             |
+| **Nombre de usuario**   | Tu dirección de correo completa (ej. `tu@davnode.me`) |
+| **Contraseña**          | Tu contraseña de correo                               |
+
+### Correo Saliente (SMTP)
+
+Necesario para enviar correos.
+
+| Configuración           | Valor                           |
+| :---------------------- | :------------------------------ |
+| **Nombre de host**      | `mail.davnode.me`               |
+| **Puerto**              | `465`                           |
+| **Seguridad / Cifrado** | SSL / TLS                       |
+| **Autenticación**       | Requerida (Contraseña normal)   |
+| **Nombre de usuario**   | Tu dirección de correo completa |
+
+Si el puerto `465` está bloqueado en tu red, prueba el puerto `8465` con **SSL/TLS** o `587` con **STARTTLS**.
+
+---
+
+## Guía de Configuración Genérica
+
+Aunque los menús varían según la aplicación, el proceso general es casi siempre el mismo:
+
+1.  **Añadir cuenta:** Busca "Ajustes" > "Cuentas" > "Añadir cuenta".
+2.  **Seleccionar tipo:** Elige **IMAP** (a veces listado como "Otro" o "Correo de Internet").
+    - _Evita seleccionar POP3._
+3.  **Introducir credenciales:** Escribe tu nombre, dirección de correo completa y contraseña.
+4.  **Configuración manual:** Si la aplicación intenta detectar automáticamente la configuración, busca un botón que diga **"Configuración manual"**, **"Configuración avanzada"** o **"Mostrar detalles"**.
+5.  **Introducir detalles del servidor:** Copia el Nombre de host (`mail.davnode.me`) y los Puertos (`993` / `465`) de la tabla de referencia anterior.
+6.  **Autenticar:** Asegúrate de que la casilla "El servidor de salida requiere autenticación" esté marcada.
+
+<Note>
+  Recomendamos utilizar siempre una **contraseña de aplicación (app password)**
+  para conectar clientes de correo.
+</Note>
+
+---
+
+## Solución de problemas comunes
+
+### "Fallo de autenticación"
+
+- **Nombre de usuario:** Asegúrate de estar utilizando tu **dirección de correo completa** como nombre de usuario, no solo la parte anterior al `@`.
+- **Espacios ocultos:** Si estás copiando y pegando, comprueba que no hayas copiado accidentalmente un espacio en blanco al final de la contraseña o del nombre de host.
+
+### "Conexión rechazada" o "No se puede verificar el servidor"
+
+- **Puerto incorrecto:** Comprueba que seleccionaste **SSL/TLS** para el puerto **465**.
+  - Si seleccionaste **STARTTLS**, debes usar el puerto **587**.
+  - _Davnode recomienda el puerto 465 (SSL/TLS) para la mejor compatibilidad._
+
+Si el puerto `465` está bloqueado en tu red, prueba el puerto `8465` con **SSL/TLS** o `587` con **STARTTLS**.
+
+### "Advertencia de certificado"
+
+- Si ves una advertencia sobre que el certificado no coincide, asegúrate de que el **Nombre de host del servidor** esté configurado en `mail.davnode.me`.

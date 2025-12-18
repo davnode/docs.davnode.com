@@ -1,0 +1,75 @@
+---
+title: Introduction
+description: "Welcome to Davnode, the email provider for those who hate per-user pricing."
+---
+
+<img
+  className="block dark:hidden"
+  src="/images/hero-light.webp"
+  alt="Davnode Hero Light"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/hero-dark.webp"
+  alt="Davnode Hero Dark"
+/>
+
+## What is Davnode?
+
+Davnode is a no-nonsense hosting provider for **Email**, **Calendars** (CalDAV), and **Contacts** (CardDAV).
+
+We built Davnode because we were tired of paying $6/month for every single email address we needed for our side projects. We believe that if you own the domain, you should be able to create as many mailboxes as you want without being penalized.
+
+<Note>
+  **Philosophy:** We move data from A to B. We don't scan your emails for ads,
+  we don't train AI on your data, and we don't lock you into proprietary apps.
+</Note>
+
+## Why Davnode?
+
+Most email providers are built for enterprise corporations. We are built for **developers, freelancers, agencies, small companies and single users**.
+
+- **Flat Pricing:** One yearly fee. No "per-user" tax.
+- **Unlimited Everything:** Create unlimited mailboxes and attach unlimited custom domains.
+- **Standard Protocols:** Native support for IMAP, SMTP, CalDAV, and CardDAV.
+- **Privacy First:** Your data is yours. Export it anytime via standard tools.
+
+## Getting Started
+
+Setting up Davnode is designed to be fast. You setup the DNS; we handle the rest.
+
+<CardGroup cols={2}>
+  <Card title="Quick Start Guide" icon="rocket" href="/en/quickstart">
+    Set up your first domain and create a mailbox in under 5 minutes.
+  </Card>
+  <Card
+    title="DNS Configuration"
+    icon="server"
+    href="/en/custom-domains/custom-domain-setup"
+  >
+    The exact MX, SPF, and DKIM records you need to copy-paste.
+  </Card>
+  <Card title="Mailboxes" icon="mailbox" href="/en/mailboxes/create-mailbox">
+    Programmatically manage mailboxes.
+  </Card>
+  <Card
+    title="Connection Settings"
+    icon="plug"
+    href="/en/configuration/clients"
+  >
+    IMAP, SMTP, and DAV ports for connecting your favorite clients.
+  </Card>
+</CardGroup>
+
+## Supported Protocols
+
+We rely strictly on open standards so you can use the software you already love (Apple Mail, Outlook, Thunderbird, Spark, etc.).
+
+| Service           | Protocol | Hostname          | Port             |
+| :---------------- | :------- | :---------------- | :--------------- |
+| **Incoming Mail** | IMAP     | `mail.davnode.me` | `993` (SSL/TLS)  |
+| **Outgoing Mail** | SMTP     | `mail.davnode.me` | `465` (SSL/TLS)  |
+| **Outgoing Mail** | SMTP     | `mail.davnode.me` | `8465` (SSL/TLS) |
+| **Outgoing Mail** | SMTP     | `mail.davnode.me` | `587` (STARTTLS) |
+| **Calendars**     | CalDAV   | `mail.davnode.me` | `443` (HTTPS)    |
+| **Contacts**      | CardDAV  | `mail.davnode.me` | `443` (HTTPS)    |

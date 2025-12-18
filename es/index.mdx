@@ -1,0 +1,76 @@
+---
+title: Introducción
+description: "Bienvenido a Davnode, el proveedor de correo electrónico para quienes odian pagar por cada usuario."
+---
+
+<img
+  className="block dark:hidden"
+  src="/images/hero-light.webp"
+  alt="Davnode Hero Claro"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/hero-dark.webp"
+  alt="Davnode Hero Oscuro"
+/>
+
+## ¿Qué es Davnode?
+
+Davnode es un proveedor de alojamiento directo y sin complicaciones para **Correo**, **Calendarios** (CalDAV) y **Contactos** (CardDAV).
+
+Creamos Davnode porque estábamos cansados de pagar $6 USD/mes por cada dirección de correo electrónico que necesitábamos para nuestros proyectos. Creemos que si posees el dominio, deberías poder crear tantos buzones como quieras sin ser penalizado.
+
+<Note>
+  **Filosofía:** Movemos datos de A a B. No escaneamos tus correos en busca de
+  anuncios, no entrenamos IA con tus datos y no te encerramos en aplicaciones
+  propietarias.
+</Note>
+
+## ¿Por qué Davnode?
+
+La mayoría de los proveedores de correo están hechos para corporaciones empresariales. Nosotros estamos hechos para **desarrolladores, freelancers, agencias, pequeñas empresas y usuarios individuales**.
+
+- **Tarifa Plana:** Una cuota anual. Sin el "impuesto" por usuario.
+- **Todo Ilimitado:** Crea buzones ilimitados y vincula dominios personalizados ilimitados.
+- **Protocolos Estándar:** Soporte nativo para IMAP, SMTP, CalDAV y CardDAV.
+- **Privacidad Primero:** Tus datos son tuyos. Expórtalos en cualquier momento con herramientas estándar.
+
+## Empezando
+
+La configuración de Davnode está diseñada para ser rápida. Tú configuras el DNS; nosotros nos encargamos del resto.
+
+<CardGroup cols={2}>
+  <Card title="Guía de Inicio Rápido" icon="rocket" href="/en/quickstart">
+    Configura tu primer dominio y crea un buzón en menos de 5 minutos.
+  </Card>
+  <Card
+    title="Configuración DNS"
+    icon="server"
+    href="/en/custom-domains/custom-domain-setup"
+  >
+    Los registros MX, SPF y DKIM exactos que necesitas copiar y pegar.
+  </Card>
+  <Card title="Buzones" icon="mailbox" href="/en/mailboxes/create-mailbox">
+    Gestiona buzones programáticamente.
+  </Card>
+  <Card
+    title="Ajustes de Conexión"
+    icon="plug"
+    href="/en/configuration/clients"
+  >
+    Puertos IMAP, SMTP y DAV para conectar tus clientes favoritos.
+  </Card>
+</CardGroup>
+
+## Protocolos Soportados
+
+Dependemos estrictamente de estándares abiertos para que puedas usar el software que ya amas (Apple Mail, Outlook, Thunderbird, Spark, etc.).
+
+| Servicio            | Protocolo | Nombre de host    | Puerto           |
+| :------------------ | :-------- | :---------------- | :--------------- |
+| **Correo Entrante** | IMAP      | `mail.davnode.me` | `993` (SSL/TLS)  |
+| **Correo Saliente** | SMTP      | `mail.davnode.me` | `465` (SSL/TLS)  |
+| **Correo Saliente** | SMTP      | `mail.davnode.me` | `8465` (SSL/TLS) |
+| **Correo Saliente** | SMTP      | `mail.davnode.me` | `587` (STARTTLS) |
+| **Calendarios**     | CalDAV    | `mail.davnode.me` | `443` (HTTPS)    |
+| **Contactos**       | CardDAV   | `mail.davnode.me` | `443` (HTTPS)    |

@@ -1,0 +1,81 @@
+---
+title: Android (DAVx⁵)
+description: A step-by-step guide to syncing your Davnode Calendar and Contacts on Android using DAVx⁵.
+icon: "android"
+---
+
+# Syncing with Android
+
+Android does not support CalDAV or CardDAV protocols out of the box. To sync your Davnode data, you need to install a synchronization adapter app.
+
+We recommend **DAVx⁵** (formerly DAVdroid), widely considered the best solution for Android.
+
+## Server Settings
+
+You will need these details during the setup:
+
+| Service            | Server            | Port  | Encryption |
+| :----------------- | :---------------- | :---- | :--------- |
+| **CalDAV/CardDAV** | `mail.davnode.me` | `443` | SSL/HTTPS  |
+
+---
+
+## 1. Install DAVx⁵
+
+1. Download and install **DAVx⁵** from the [Google Play Store](https://play.google.com/store/apps/details?id=at.bitfire.davdroid) or [F-Droid](https://f-droid.org/packages/at.bitfire.davdroid/).
+2. Open the app and grant the necessary permissions (Contacts, Calendar, and Tasks).
+   > _Note: For the best experience, also grant the "OpenTasks" permission if you plan to sync tasks._
+
+## 2. Configure Account
+
+<Note>
+  We recommend to always use an **app password** for connecting calendars and
+  contacts.
+</Note>
+
+1. Open DAVx⁵ and tap the **+ (Plus)** button (or "Add Account").
+2. Select **Login with URL and user name**.
+3. Enter the following details:
+   - **Base URL:** `https://mail.davnode.me/`
+   - **User Name:** Your full Davnode email address.
+   - **Password:** Your Davnode password.
+4. Tap **Login**.
+5. DAVx⁵ will connect to the server and discover your available address books and calendars.
+6. **Create Account:**
+   - Enter an account name (e.g., "Davnode").
+   - Tap **Create account**.
+
+## 3. Select Data to Sync
+
+1. After creating the account, you will see a list of available collections.
+2. **CardDAV:** Tap the **CardDAV** tab and check the box next to your address book.
+3. **CalDAV:** Tap the **CalDAV** tab and check the boxes next to the calendars you want to sync.
+4. Tap the **Sync** icon (refresh arrows) in the bottom right corner to perform the initial sync.
+
+---
+
+## 4. View Data in Android Apps
+
+Once DAVx⁵ is synced, your data will appear in your native apps:
+
+- **Contacts:** Open your default Contacts app. You should see "Davnode" (or the name you chose) listed under Accounts/Groups.
+- **Calendar:** Open your default Calendar app (e.g., Google Calendar). Go to the sidebar menu and ensure the checkboxes for your Davnode calendars are ticked.
+
+---
+
+## Troubleshooting
+
+### Sync Not Working Automatically
+
+Android aggressively kills background processes to save battery. If contacts or calendars stop updating:
+
+1. Open **DAVx⁵**.
+2. Go to **Settings** > **App info**.
+3. Ensure **Battery Optimization** is set to **Unrestricted** or "Don't Optimize" for DAVx⁵.
+
+### "Certificate Not Trusted"
+
+If you receive an SSL error:
+
+1. Ensure the URL is entered correctly as `https://mail.davnode.me/`.
+2. Ensure you are not behind a restrictive firewall or VPN blocking port 443.

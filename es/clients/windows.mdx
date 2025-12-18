@@ -1,0 +1,105 @@
+---
+title: "Windows"
+description: Una guía paso a paso para configurar tu correo Davnode en la aplicación Windows Mail y el nuevo Outlook.
+icon: "windows"
+---
+
+# Conectar Davnode a Windows
+
+Esta guía cubre cómo configurar tu cuenta de correo electrónico **Davnode** en la aplicación predeterminada **Correo** (Mail) para Windows 10 y 11.
+
+## Requisitos previos
+
+- Tu **dirección de correo Davnode**.
+- Tu **contraseña** de correo o **contraseña de aplicación (recomendado)**.
+- Una conexión a internet.
+
+<Note>
+  Recomendamos utilizar siempre una **contraseña de aplicación (app password)**
+  para conectar clientes de correo.
+</Note>
+
+---
+
+## Referencia de Configuración del Servidor
+
+Windows a menudo requiere que uses la "Configuración avanzada" para conectar correctamente a servidores de correo personalizados.
+
+| Configuración         | Valor             |
+| :-------------------- | :---------------- |
+| **Servidor entrante** | `mail.davnode.me` |
+| **Puerto entrante**   | `993` (SSL)       |
+| **Servidor saliente** | `mail.davnode.me` |
+| **Puerto saliente**   | `465` (SSL)       |
+| **Tipo de cuenta**    | IMAP4             |
+
+---
+
+## Instrucciones de Configuración
+
+1.  Abre la aplicación **Correo** en tu PC.
+2.  Selecciona **Cuentas** > **+ Agregar cuenta** en la barra lateral izquierda o derecha.
+3.  Desplázate hacia abajo y selecciona **Configuración avanzada** (icono de engranajes).
+    - _Nota: No selecciones "Otra cuenta (POP, IMAP)" inicialmente, ya que a menudo falla al detectar los puertos correctos. "Configuración avanzada" es más confiable._
+4.  Selecciona **Correo electrónico de Internet**.
+5.  Introduce los detalles de tu cuenta de la siguiente manera:
+
+### 1. Detalles de la cuenta
+
+- **Dirección de correo electrónico:** Tu dirección de correo completa de Davnode.
+- **Nombre de usuario:** Tu dirección de correo completa de Davnode.
+- **Contraseña:** Tu contraseña de correo.
+- **Nombre de cuenta:** Davnode.
+- **Enviar tus mensajes con este nombre:** Tu nombre para mostrar (ej. Juan Pérez).
+
+### 2. Información del servidor
+
+- **Servidor de correo entrante:** `mail.davnode.me`
+- **Tipo de cuenta:** Selecciona **IMAP4**.
+- **Servidor de correo saliente (SMTP):** `mail.davnode.me`
+
+### 3. Configuración de seguridad
+
+Asegúrate de que todas las siguientes casillas estén **Marcadas**:
+
+- [x] El servidor de salida requiere autenticación.
+- [x] Utilizar el mismo nombre de usuario y contraseña para enviar correo.
+- [x] Requerir SSL para el correo entrante.
+- [x] Requerir SSL para el correo saliente.
+
+6.  Haz clic en **Iniciar sesión**.
+7.  Haz clic en **Listo**.
+
+---
+
+## Solución de problemas
+
+### "No pudimos acceder a esta cuenta" (Error 0x800...)
+
+Si Windows no logra sincronizar después de la configuración:
+
+1.  Haz clic derecho en tu cuenta **Davnode** en la barra lateral y selecciona **Configuración de la cuenta**.
+2.  Haz clic en **Cambiar configuración de sincronización del buzón**.
+3.  Haz clic en **Configuración avanzada del buzón**.
+4.  Verifica que las direcciones del servidor tengan los números de puerto añadidos en este formato:
+    - **Servidor entrante:** `mail.davnode.me:993:1`
+    - **Servidor saliente:** `mail.davnode.me:465:1`
+    - _(El `:1` al final indica a Windows que use SSL explícitamente)._
+5.  Haz clic en **Listo** y **Guardar**.
+
+Si el puerto 465 está bloqueado en tu red, prueba el puerto `8465` con **SSL/TLS** o `587` con **STARTTLS**.
+
+### Nuevo Outlook para Windows
+
+Si estás usando el "Nuevo Outlook" (la aplicación web que reemplaza a Correo):
+
+1.  Ve a **Configuración (Icono de engranaje)** > **Cuentas** > **Cuentas de correo electrónico** > **Agregar cuenta**.
+2.  Introduce tu dirección de correo y haz clic en **Continuar**.
+3.  Haz clic en **Seleccionar proveedor** y elige **IMAP**.
+4.  Activa **"Mostrar más"** para ver la configuración del servidor.
+5.  Introduce los detalles manualmente:
+    - **Host IMAP:** `mail.davnode.me` | **Puerto:** `993` | **Tipo de seguridad:** `SSL / TLS`
+    - **Host SMTP:** `mail.davnode.me` | **Puerto:** `465` | **Tipo de seguridad:** `SSL / TLS`
+    - **Usuario IMAP/SMTP:** Tu dirección de correo completa.
+    - **Contraseña IMAP/SMTP:** Tu contraseña de correo.
+6.  Haz clic en **Continuar**.

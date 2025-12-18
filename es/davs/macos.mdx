@@ -1,0 +1,80 @@
+---
+title: macOS
+description: Instrucciones para configurar la sincronización de Calendario y Contactos de Davnode en tu Mac.
+icon: "apple"
+---
+
+# Sincronización con macOS
+
+Esta guía explica cómo configurar las aplicaciones nativas de Calendario y Contactos de macOS para sincronizarse con Davnode.
+
+## Ajustes del Servidor
+
+Por favor, ten a mano tu correo y contraseña de Davnode. Necesitarás los siguientes detalles del servidor:
+
+| Servicio                | Servidor          | Puerto | Cifrado   |
+| :---------------------- | :---------------- | :----- | :-------- |
+| **CalDAV** (Calendario) | `mail.davnode.me` | `443`  | SSL/HTTPS |
+| **CardDAV** (Contactos) | `mail.davnode.me` | `443`  | SSL/HTTPS |
+
+---
+
+<Note>
+  Recomendamos utilizar siempre una **contraseña de aplicación** para conectar
+  calendarios y contactos.
+</Note>
+
+## 1. Añadir cuenta de Calendario
+
+Para sincronizar tus calendarios Davnode con la aplicación Calendario de macOS:
+
+1. Abre **Ajustes del Sistema** (o _Preferencias del Sistema_ en versiones antiguas de macOS).
+2. Haz clic en **Cuentas de Internet**.
+3. Haz clic en el botón **Añadir cuenta**.
+4. Selecciona **Añadir otra cuenta...** (generalmente en la parte inferior de la lista).
+5. Elige **Cuenta CalDAV**.
+6. Establece el "Tipo de cuenta" en **Manual**.
+7. Introduce los siguientes detalles:
+   - **Nombre de usuario:** Tu dirección de correo completa de Davnode.
+   - **Contraseña:** Tu contraseña de Davnode.
+   - **Dirección del servidor:** `mail.davnode.me`
+8. Haz clic en **Iniciar sesión**.
+9. Asegúrate de que la casilla **Calendarios** esté seleccionada (y **Recordatorios** si lo deseas).
+10. Haz clic en **Listo**.
+
+## 2. Añadir cuenta de Contactos
+
+Para sincronizar tu libreta de direcciones Davnode con la aplicación Contactos de macOS:
+
+1. Vuelve a **Ajustes del Sistema** > **Cuentas de Internet**.
+2. Haz clic en **Añadir cuenta** > **Añadir otra cuenta...**
+3. Elige **Cuenta CardDAV**.
+4. Establece el "Tipo de cuenta" en **Manual**.
+5. Introduce los siguientes detalles:
+   - **Nombre de usuario:** Tu dirección de correo completa de Davnode.
+   - **Contraseña:** Tu contraseña de Davnode.
+   - **Dirección del servidor:** `mail.davnode.me`
+6. Haz clic en **Iniciar sesión**.
+7. Asegúrate de que la casilla **Contactos** esté seleccionada.
+8. Haz clic en **Listo**.
+
+---
+
+## Solución de problemas
+
+### "No se puede verificar el nombre de cuenta o la contraseña"
+
+Si macOS no puede conectarse inmediatamente:
+
+1. Asegúrate de que el **Tipo de cuenta** esté configurado en **Manual**, no Automático.
+2. Si se solicitan rutas específicas o ajustes avanzados del servidor:
+   - **Puerto:** `443`
+   - **Usar SSL:** Marcado/Habilitado
+
+### Los calendarios no se actualizan
+
+Si la cuenta está añadida pero faltan eventos:
+
+1. Abre la aplicación **Calendario**.
+2. Presiona `Cmd + R` para forzar una actualización.
+3. En la barra de menú, ve a **Visualización** > **Actualizar calendarios**.

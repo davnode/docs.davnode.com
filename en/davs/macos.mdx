@@ -1,0 +1,80 @@
+---
+title: macOS
+description: Instructions for setting up Davnode Calendar and Contact synchronization on your Mac.
+icon: "apple"
+---
+
+# Syncing with macOS
+
+This guide explains how to configure the native macOS Calendar and Contacts apps to sync with Davnode.
+
+## Server Settings
+
+Please have your Davnode email and password ready. You will need the following server details:
+
+| Service                | Server            | Port  | Encryption |
+| :--------------------- | :---------------- | :---- | :--------- |
+| **CalDAV** (Calendar)  | `mail.davnode.me` | `443` | SSL/HTTPS  |
+| **CardDAV** (Contacts) | `mail.davnode.me` | `443` | SSL/HTTPS  |
+
+---
+
+<Note>
+  We recommend to always use an **app password** for connecting calendars and
+  contacts.
+</Note>
+
+## 1. Add Calendar Account
+
+To sync your Davnode calendars with the macOS Calendar app:
+
+1. Open **System Settings** (or _System Preferences_ on older macOS versions).
+2. Click on **Internet Accounts**.
+3. Click the **Add Account** button.
+4. Select **Add Other Account...** (usually at the bottom of the list).
+5. Choose **CalDAV Account**.
+6. Set the "Account Type" to **Manual**.
+7. Enter the following details:
+   - **User Name:** Your full Davnode email address.
+   - **Password:** Your Davnode password.
+   - **Server Address:** `mail.davnode.me`
+8. Click **Sign In**.
+9. Ensure the **Calendars** checkbox is selected (and **Reminders** if desired).
+10. Click **Done**.
+
+## 2. Add Contacts Account
+
+To sync your Davnode address book with the macOS Contacts app:
+
+1. Return to **System Settings** > **Internet Accounts**.
+2. Click **Add Account** > **Add Other Account...**
+3. Choose **CardDAV Account**.
+4. Set the "Account Type" to **Manual**.
+5. Enter the following details:
+   - **User Name:** Your full Davnode email address.
+   - **Password:** Your Davnode password.
+   - **Server Address:** `mail.davnode.me`
+6. Click **Sign In**.
+7. Ensure the **Contacts** checkbox is selected.
+8. Click **Done**.
+
+---
+
+## Troubleshooting
+
+### "Unable to Verify Account Name or Password"
+
+If macOS cannot connect immediately:
+
+1. Ensure the **Account Type** is set to **Manual**, not Automatic.
+2. If prompted for specific paths or advanced server settings:
+   - **Port:** `443`
+   - **Use SSL:** Checked/Enabled
+
+### Calendars Not Updating
+
+If the account is added but events are missing:
+
+1. Open the **Calendar** app.
+2. Press `Cmd + R` to force a refresh.
+3. In the menu bar, go to **View** > **Refresh Calendars**.

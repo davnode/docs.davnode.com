@@ -1,0 +1,81 @@
+---
+title: iOS
+description: A step-by-step guide to syncing your Davnode Calendar and Contacts on iPhone and iPad.
+icon: "apple"
+---
+
+# Syncing with iOS
+
+This guide will help you configure your iPhone or iPad to sync calendars and contacts using Davnode.
+
+## Server Settings
+
+Before starting, ensure you have your Davnode email address and password ready. Use the following server settings during configuration:
+
+| Service                | Server            | Port  | Encryption |
+| :--------------------- | :---------------- | :---- | :--------- |
+| **CalDAV** (Calendar)  | `mail.davnode.me` | `443` | SSL/HTTPS  |
+| **CardDAV** (Contacts) | `mail.davnode.me` | `443` | SSL/HTTPS  |
+
+---
+
+<Note>
+  We recommend to always use an **app password** for connecting calendars and
+  contacts.
+</Note>
+
+## 1. Add Calendar (CalDAV)
+
+To sync your Davnode calendars with the native iOS Calendar app:
+
+1. Open **Settings** on your iOS device.
+2. Tap **Mail** > **Accounts** > **Add Account**.
+   > _Note: On older iOS versions, this may be under **Passwords & Accounts**._
+3. Select **Other** at the bottom of the list.
+4. Under the _Calendars_ section, tap **Add CalDAV Account**.
+5. Enter the following information:
+   - **Server:** `mail.davnode.me`
+   - **User Name:** Your full Davnode email address (e.g., `user@davnode.me`).
+   - **Password:** Your Davnode password.
+   - **Description:** Davnode Calendar (or a name of your choice).
+6. Tap **Next** in the top right corner.
+7. iOS will verify the account. Ensure **Calendars** is toggled **ON**.
+   > _Optional:_ You can also toggle **Reminders** ON if you wish to sync tasks.
+8. Tap **Save**.
+
+## 2. Add Contacts (CardDAV)
+
+To sync your Davnode contacts with the native iOS Contacts app:
+
+1. Open **Settings** on your iOS device.
+2. Tap **Mail** > **Accounts** > **Add Account**.
+3. Select **Other**.
+4. Under the _Contacts_ section, tap **Add CardDAV Account**.
+5. Enter the following information:
+   - **Server:** `mail.davnode.me`
+   - **User Name:** Your full Davnode email address.
+   - **Password:** Your Davnode password.
+   - **Description:** Davnode Contacts.
+6. Tap **Next**.
+7. Once verified, ensure **Contacts** is toggled **ON**.
+8. Tap **Save**.
+
+---
+
+## Troubleshooting
+
+### Connection Verification Failed
+
+If iOS fails to verify the account, it may ask for "Advanced Settings." Ensure the following are correct:
+
+- **Use SSL:** ON
+- **Port:** `443`
+- **Account URL:** Generally auto-detected, but ensure the base domain is `mail.davnode.me`.
+
+### Calendars Not Showing
+
+If you have successfully added the account but events are not appearing:
+
+1. Open the **Calendar** app.
+2. Tap **Calendars** at the bottom of the screen.
+3. Ensure the checkbox next to your **Davnode Calendar** is ticked.

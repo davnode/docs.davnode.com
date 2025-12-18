@@ -1,0 +1,89 @@
+---
+title: "iOS & iPad"
+description: "A step-by-step guide to configuring your Davnode email on iPhone and iPad."
+icon: "apple"
+---
+
+# Connect Davnode to iOS Mail
+
+This guide will help you set up your **Davnode** email account on an iPhone or iPad using the default Mail app.
+
+## Prerequisites
+
+Before you begin, ensure you have:
+
+- Your active **Davnode email address**.
+- Your email address **password** or **app password (recommended)**.
+- An internet connection.
+
+<Note>
+  We recommend to always use an **app password** for connecting mail clients.
+</Note>
+
+---
+
+## Server Settings Reference
+
+If you are setting this up manually or need to verify your ports, use the following settings:
+
+| Setting                  | Protocol | Hostname          | Port   | Security |
+| :----------------------- | :------- | :---------------- | :----- | :------- |
+| **Incoming**             | IMAP     | `mail.davnode.me` | `993`  | SSL/TLS  |
+| **Outgoing**             | SMTP     | `mail.davnode.me` | `465`  | SSL/TLS  |
+| **Outgoing alternative** | SMTP     | `mail.davnode.me` | `8465` | SSL/TLS  |
+| **Outgoing alternative** | SMTP     | `mail.davnode.me` | `587`  | STARTTLS |
+
+> **Note:** Your username is your full Davnode email address.
+
+---
+
+## Setup Instructions
+
+1.  Open the **Settings** app on your iPhone or iPad.
+2.  Tap on **Mail** > **Accounts**.
+    - _(On older iOS versions, this may be under **Passwords & Accounts**)_.
+3.  Tap **Add Account**.
+4.  Select **Other** from the bottom of the list.
+5.  Tap **Add Mail Account**.
+6.  Enter your account details:
+    - **Name:** Your display name (e.g., John Doe).
+    - **Email:** Your full Davnode email address.
+    - **Password:** Your email password.
+    - **Description:** Davnode (or a name of your choice).
+7.  Tap **Next**.
+
+### Configure Server Settings
+
+Ensure the **IMAP** tab is selected at the top.
+
+#### Incoming Mail Server
+
+- **Host Name:** `mail.davnode.me`
+- **User Name:** Your full email address.
+- **Password:** Your email password.
+
+#### Outgoing Mail Server
+
+- **Host Name:** `mail.davnode.me`
+- **User Name:** Your full email address.
+- **Password:** Your email password.
+
+Tap **Next** to verify the account information. iOS will attempt to verify the connection.
+
+### Troubleshooting Ports
+
+If iOS fails to verify automatically, you may need to manually ensure the specific ports are set correctly.
+
+1.  Tap on your newly created **Davnode** account in **Settings** > **Mail** > **Accounts**.
+2.  Tap on **Account** (showing your email address).
+3.  **For IMAP (Incoming):**
+    - Go back and tap **Advanced**.
+    - Scroll to "Incoming Settings".
+    - Ensure **Server Port** is set to `993`.
+    - Ensure **Use SSL** is toggled **ON**.
+4.  **For SMTP (Outgoing):**
+    - Tap **SMTP** -> **mail.davnode.me**.
+    - Ensure **Server Port** is set to `465`.
+    - Ensure **Use SSL** is toggled **ON**.
+
+If port `465` is blocked on your network, try port `8465` with **SSL/TLS** or port `587` with **STARTTLS**.
