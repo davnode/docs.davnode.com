@@ -25,12 +25,12 @@ Esta guía te ayudará a configurar tu cuenta de correo electrónico **Davnode**
 
 Si necesitas introducir los ajustes manualmente, utiliza la referencia a continuación:
 
-| Configuración            | Protocolo | Nombre de host    | Puerto | Seguridad |
-| :----------------------- | :-------- | :---------------- | :----- | :-------- |
-| **Entrante**             | IMAP      | `mail.davnode.me` | `993`  | SSL/TLS   |
-| **Saliente**             | SMTP      | `mail.davnode.me` | `465`  | SSL/TLS   |
-| **Saliente alternativo** | SMTP      | `mail.davnode.me` | `8465` | SSL/TLS   |
-| **Saliente alternativo** | SMTP      | `mail.davnode.me` | `587`  | STARTTLS  |
+| Configuración            | Protocolo | Nombre de host     | Puerto | Seguridad |
+| :----------------------- | :-------- | :----------------- | :----- | :-------- |
+| **Entrante**             | IMAP      | `mail.davnode.com` | `993`  | SSL/TLS   |
+| **Saliente**             | SMTP      | `mail.davnode.com` | `465`  | SSL/TLS   |
+| **Saliente alternativo** | SMTP      | `mail.davnode.com` | `8465` | SSL/TLS   |
+| **Saliente alternativo** | SMTP      | `mail.davnode.com` | `587`  | STARTTLS  |
 
 ---
 
@@ -52,7 +52,7 @@ Thunderbird puede intentar adivinar la configuración. Asegúrate de que los cam
 #### Servidor entrante
 
 - **Protocolo:** `IMAP`
-- **Nombre del servidor:** `mail.davnode.me`
+- **Nombre del servidor:** `mail.davnode.com`
 - **Puerto:** `993`
 - **Seguridad de la conexión:** `SSL/TLS`
 - **Método de autenticación:** `Contraseña normal`
@@ -61,7 +61,7 @@ Thunderbird puede intentar adivinar la configuración. Asegúrate de que los cam
 #### Servidor saliente
 
 - **Protocolo:** `SMTP`
-- **Nombre del servidor:** `mail.davnode.me`
+- **Nombre del servidor:** `mail.davnode.com`
 - **Puerto:** `465`
 - **Seguridad de la conexión:** `SSL/TLS`
 - **Método de autenticación:** `Contraseña normal`
@@ -80,7 +80,7 @@ Thunderbird puede intentar adivinar la configuración. Asegúrate de que los cam
 
 ### Advertencias de seguridad de conexión
 
-Si recibes una advertencia de "Excepción de seguridad" durante la configuración, asegúrate de estar utilizando el nombre de host exacto `mail.davnode.me`.
+Si recibes una advertencia de "Excepción de seguridad" durante la configuración, asegúrate de estar utilizando el nombre de host exacto `mail.davnode.com`.
 
 ### Problemas de envío (SMTP)
 
@@ -88,5 +88,5 @@ Si puedes recibir correo pero no enviarlo:
 
 1.  Haz clic derecho en el nombre de tu cuenta en la barra lateral y selecciona **Configuración**.
 2.  Desplázate hasta el final de la barra lateral izquierda y selecciona **Servidor de salida (SMTP)**.
-3.  Selecciona la entrada `mail.davnode.me` y haz clic en **Editar**.
+3.  Selecciona la entrada `mail.davnode.com` y haz clic en **Editar**.
 4.  Si tu red bloquea el puerto `465`, prueba cambiando el puerto a `8465`. También puedes probar el puerto `587` y la seguridad de conexión en `STARTTLS`.

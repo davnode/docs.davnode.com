@@ -47,12 +47,12 @@ Si no utilizas la versión de escritorio, sigue estos pasos para conectarte manu
 
 ### Referencia de Configuración del Servidor
 
-| Configuración            | Protocolo | Nombre de host    | Puerto | Seguridad |
-| :----------------------- | :-------- | :---------------- | :----- | :-------- |
-| **Entrante**             | IMAP      | `mail.davnode.me` | `993`  | SSL/TLS   |
-| **Saliente**             | SMTP      | `mail.davnode.me` | `465`  | SSL/TLS   |
-| **Saliente alternativo** | SMTP      | `mail.davnode.me` | `8465` | SSL/TLS   |
-| **Saliente alternativo** | SMTP      | `mail.davnode.me` | `587`  | STARTTLS  |
+| Configuración            | Protocolo | Nombre de host     | Puerto | Seguridad |
+| :----------------------- | :-------- | :----------------- | :----- | :-------- |
+| **Entrante**             | IMAP      | `mail.davnode.com` | `993`  | SSL/TLS   |
+| **Saliente**             | SMTP      | `mail.davnode.com` | `465`  | SSL/TLS   |
+| **Saliente alternativo** | SMTP      | `mail.davnode.com` | `8465` | SSL/TLS   |
+| **Saliente alternativo** | SMTP      | `mail.davnode.com` | `587`  | STARTTLS  |
 
 ### Configuración paso a paso
 
@@ -60,7 +60,7 @@ Si no utilizas la versión de escritorio, sigue estos pasos para conectarte manu
 2.  Toca **Siguiente** en la pantalla de bienvenida (o "Añadir cuenta").
 3.  Introduce tu **Dirección de correo electrónico**.
 4.  Toca **Configuración manual**.
-    - _Nota: Elige siempre Configuración manual para asegurar que se usen los nombres de host `davnode.me` correctos._
+    - _Nota: Elige siempre Configuración manual para asegurar que se usen los nombres de host `davnode.com` correctos._
 
 <Note>
   Recomendamos utilizar siempre una **contraseña de aplicación (app password)**
@@ -72,14 +72,14 @@ Si no utilizas la versión de escritorio, sigue estos pasos para conectarte manu
 1.  **Protocolo:** Asegúrate de que `IMAP` esté seleccionado.
 2.  **Contraseña:** Introduce tu contraseña de correo.
 3.  **Nombre de usuario:** Asegúrate de que sea tu **dirección de correo completa**.
-4.  **Servidor IMAP:** Introduce `mail.davnode.me`.
+4.  **Servidor IMAP:** Introduce `mail.davnode.com`.
 5.  **Seguridad:** Selecciona `SSL/TLS`.
 6.  **Puerto:** Asegúrate de que esté configurado en `993`.
 7.  Toca **Siguiente**.
 
 #### Servidor saliente (SMTP)
 
-1.  **Servidor SMTP:** Introduce `mail.davnode.me`.
+1.  **Servidor SMTP:** Introduce `mail.davnode.com`.
 2.  **Seguridad:** Selecciona `SSL/TLS`.
 3.  **Puerto:** Asegúrate de que esté configurado en `465`.
 4.  **Requerir inicio de sesión:** Marcado (Activado).
@@ -101,7 +101,7 @@ Si no utilizas la versión de escritorio, sigue estos pasos para conectarte manu
 
 ### "No se puede conectar al servidor"
 
-- **Comprobar espacios:** Asegúrate de que no haya espacios adicionales al final de `mail.davnode.me` (común con el autocorrector móvil).
+- **Comprobar espacios:** Asegúrate de que no haya espacios adicionales al final de `mail.davnode.com` (común con el autocorrector móvil).
 - **Verificar SSL:** Asegúrate de haber seleccionado **SSL/TLS** para los puertos `993` y `465`, no "STARTTLS".
 - Si el puerto `465` está bloqueado en tu red, prueba el puerto `8465` con **SSL/TLS** o `587` con **STARTTLS**.
 

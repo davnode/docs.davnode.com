@@ -47,12 +47,12 @@ If you do not use the desktop version, follow these steps to connect manually.
 
 ### Server Settings Reference
 
-| Setting                  | Protocol | Hostname          | Port   | Security |
-| :----------------------- | :------- | :---------------- | :----- | :------- |
-| **Incoming**             | IMAP     | `mail.davnode.me` | `993`  | SSL/TLS  |
-| **Outgoing**             | SMTP     | `mail.davnode.me` | `465`  | SSL/TLS  |
-| **Outgoing alternative** | SMTP     | `mail.davnode.me` | `8465` | SSL/TLS  |
-| **Outgoing alternative** | SMTP     | `mail.davnode.me` | `587`  | STARTTLS |
+| Setting                  | Protocol | Hostname           | Port   | Security |
+| :----------------------- | :------- | :----------------- | :----- | :------- |
+| **Incoming**             | IMAP     | `mail.davnode.com` | `993`  | SSL/TLS  |
+| **Outgoing**             | SMTP     | `mail.davnode.com` | `465`  | SSL/TLS  |
+| **Outgoing alternative** | SMTP     | `mail.davnode.com` | `8465` | SSL/TLS  |
+| **Outgoing alternative** | SMTP     | `mail.davnode.com` | `587`  | STARTTLS |
 
 ### Step-by-Step Configuration
 
@@ -60,7 +60,7 @@ If you do not use the desktop version, follow these steps to connect manually.
 2.  Tap **Next** on the welcome screen (or "Add Account").
 3.  Enter your **Email Address**.
 4.  Tap **Manual Setup**.
-    - _Note: Always choose Manual Setup to ensure the correct `davnode.me` hostnames are used._
+    - _Note: Always choose Manual Setup to ensure the correct `davnode.com` hostnames are used._
 
 <Note>
   We recommend to always use an **app password** for connecting mail clients.
@@ -71,14 +71,14 @@ If you do not use the desktop version, follow these steps to connect manually.
 1.  **Protocol:** Ensure `IMAP` is selected.
 2.  **Password:** Enter your email password.
 3.  **Username:** Ensure this is your **full email address**.
-4.  **IMAP Server:** Enter `mail.davnode.me`.
+4.  **IMAP Server:** Enter `mail.davnode.com`.
 5.  **Security:** Select `SSL/TLS`.
 6.  **Port:** Ensure it is set to `993`.
 7.  Tap **Next**.
 
 #### Outgoing Server (SMTP)
 
-1.  **SMTP Server:** Enter `mail.davnode.me`.
+1.  **SMTP Server:** Enter `mail.davnode.com`.
 2.  **Security:** Select `SSL/TLS`.
 3.  **Port:** Ensure it is set to `465`.
 4.  **Require Sign-in:** Checked (On).
@@ -100,7 +100,7 @@ If you do not use the desktop version, follow these steps to connect manually.
 
 ### "Cannot Connect to Server"
 
-- **Check Spacing:** Ensure no extra spaces exist at the end of `mail.davnode.me` (common with mobile autocorrect).
+- **Check Spacing:** Ensure no extra spaces exist at the end of `mail.davnode.com` (common with mobile autocorrect).
 - **Verify SSL:** Ensure you selected **SSL/TLS** for ports `993` and `465`, not "STARTTLS".
 - If port `465` is blocked on your network, try port `8465` with **SSL/TLS** or port `587` with **STARTTLS**.
 

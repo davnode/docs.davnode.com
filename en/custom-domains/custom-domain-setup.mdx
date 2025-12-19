@@ -36,18 +36,18 @@ Add the following records to configure email delivery, security protocols, and s
 **Bulk Import Method (Recommended for Cloudflare users)**: You can copy the block below, save it as a dns.txt file, and import it directly into your Cloudflare DNS dashboard.
 
 ```
-@                  IN MX      10 mail.davnode.me.
-ed._domainkey      IN CNAME   ed._domainkey.davnode.me.
-rsa._domainkey     IN CNAME   rsa._domainkey.davnode.me.
-mta-sts            IN CNAME   mail.davnode.me.
-_mta-sts           IN CNAME   _mta-sts.davnode.me.
-_smtp._tls         IN CNAME   _smtp._tls.davnode.me.
-@                  IN TXT     "v=spf1 include:_spf.davnode.me ~all"
-_dmarc             IN CNAME   _dmarc.davnode.me.
-autoconfig         IN CNAME   mail.davnode.me.
-autodiscover       IN CNAME   mail.davnode.me.
-_caldavs._tcp      IN CNAME   _caldavs._tcp.davnode.me.
-_carddavs._tcp     IN CNAME   _carddavs._tcp.davnode.me.
+@                  IN MX      10 mail.davnode.com.
+ed._domainkey      IN CNAME   ed._domainkey.davnode.com.
+rsa._domainkey     IN CNAME   rsa._domainkey.davnode.com.
+mta-sts            IN CNAME   mail.davnode.com.
+_mta-sts           IN CNAME   _mta-sts.davnode.com.
+_smtp._tls         IN CNAME   _smtp._tls.davnode.com.
+@                  IN TXT     "v=spf1 include:_spf.davnode.com ~all"
+_dmarc             IN CNAME   _dmarc.davnode.com.
+autoconfig         IN CNAME   mail.davnode.com.
+autodiscover       IN CNAME   mail.davnode.com.
+_caldavs._tcp      IN CNAME   _caldavs._tcp.davnode.com.
+_carddavs._tcp     IN CNAME   _carddavs._tcp.davnode.com.
 ```
 
 > **Important: Cloudflare Configuration**. If you are using Cloudflare, you must disable the Proxy Status for all Davnode records. Ensure the cloud icon is set to DNS Only (Grey Cloud), not Proxied (Orange Cloud).
@@ -86,15 +86,15 @@ Think of it as a nickname for your primary domain.
 
 Both of these records do the exact same job:
 
-| Type | Name  | Mail server     | TTL  | Priority |
-| :--- | :---- | :-------------- | :--- | :------- |
-| MX   | **@** | mail.davnode.me | Auto | 10       |
+| Type | Name  | Mail server      | TTL  | Priority |
+| :--- | :---- | :--------------- | :--- | :------- |
+| MX   | **@** | mail.davnode.com | Auto | 10       |
 
 **_is the simple way of writing:_**
 
-| Type | Name               | Mail server     | TTL  | Priority |
-| :--- | :----------------- | :-------------- | :--- | :------- |
-| MX   | mycustomdomain.com | mail.davnode.me | Auto | 10       |
+| Type | Name               | Mail server      | TTL  | Priority |
+| :--- | :----------------- | :--------------- | :--- | :------- |
+| MX   | mycustomdomain.com | mail.davnode.com | Auto | 10       |
 
 ---
 
@@ -108,12 +108,12 @@ Function: Routes incoming email. Directs the internet to deliver emails addresse
 
 DNS Zone file
 
-| Type | Name | Mail server     | TTL  | Priority |
-| :--- | :--- | :-------------- | :--- | :------- |
-| MX   | @    | mail.davnode.me | Auto | 10       |
+| Type | Name | Mail server      | TTL  | Priority |
+| :--- | :--- | :--------------- | :--- | :------- |
+| MX   | @    | mail.davnode.com | Auto | 10       |
 
 ```plaintext Mail server
-mail.davnode.me
+mail.davnode.com
 ```
 
 ### TXT Record (SPF)
@@ -122,12 +122,12 @@ Function: Sender Policy Framework (Anti-Spam). Authorizes Davnode's servers to s
 
 DNS Zone file
 
-| Type | Name | Content                                | TTL  |
-| :--- | :--- | :------------------------------------- | :--- |
-| TXT  | @    | "v=spf1 include:\_spf.davnode.me ~all" | Auto |
+| Type | Name | Content                                 | TTL  |
+| :--- | :--- | :-------------------------------------- | :--- |
+| TXT  | @    | "v=spf1 include:\_spf.davnode.com ~all" | Auto |
 
 ```plaintext Content
-"v=spf1 include:_spf.davnode.me ~all"
+"v=spf1 include:_spf.davnode.com ~all"
 ```
 
 ### CNAME (DMARC)
@@ -136,9 +136,9 @@ Function: Domain-based Message Authentication, Reporting, and Conformance. Instr
 
 DNS Zone file
 
-| Type  | Name    | Target             | TTL  |
-| :---- | :------ | :----------------- | :--- |
-| CNAME | \_dmarc | \_dmarc.davnode.me | Auto |
+| Type  | Name    | Target              | TTL  |
+| :---- | :------ | :------------------ | :--- |
+| CNAME | \_dmarc | \_dmarc.davnode.com | Auto |
 
 <CodeGroup>
 
@@ -147,7 +147,7 @@ _dmarc
 ```
 
 ```plaintext Target
-_dmarc.davnode.me
+_dmarc.davnode.com
 ```
 
 </CodeGroup>
@@ -158,10 +158,10 @@ Function: DomainKeys Identified Mail. Adds a cryptographic signature to your ema
 
 DNS Zone file
 
-| Type  | Name            | Target                     | TTL  |
-| :---- | :-------------- | :------------------------- | :--- |
-| CNAME | ed.\_domainkey  | ed.\_domainkey.davnode.me  | Auto |
-| CNAME | rsa.\_domainkey | rsa.\_domainkey.davnode.me | Auto |
+| Type  | Name            | Target                      | TTL  |
+| :---- | :-------------- | :-------------------------- | :--- |
+| CNAME | ed.\_domainkey  | ed.\_domainkey.davnode.com  | Auto |
+| CNAME | rsa.\_domainkey | rsa.\_domainkey.davnode.com | Auto |
 
 <CodeGroup>
 
@@ -170,7 +170,7 @@ ed._domainkey
 ```
 
 ```plaintext Target (ed._domainkey)
-ed._domainkey.davnode.me
+ed._domainkey.davnode.com
 ```
 
 </CodeGroup>
@@ -182,7 +182,7 @@ rsa._domainkey
 ```
 
 ```plaintext Target (rsa._domainkey)
-rsa._domainkey.davnode.me
+rsa._domainkey.davnode.com
 ```
 
 </CodeGroup>
@@ -193,11 +193,11 @@ Function: Mail Transfer Agent Strict Transport Security. Enforces TLS encryption
 
 DNS Zone file
 
-| Type  | Name         | Target                  | TTL  |
-| :---- | :----------- | :---------------------- | :--- |
-| CNAME | mta-sts      | mail.davnode.me         | Auto |
-| CNAME | \_mta-sts    | \_mta-sts.davnode.me    | Auto |
-| CNAME | \_smtp.\_tls | \_smtp.\_tls.davnode.me | Auto |
+| Type  | Name         | Target                   | TTL  |
+| :---- | :----------- | :----------------------- | :--- |
+| CNAME | mta-sts      | mail.davnode.com         | Auto |
+| CNAME | \_mta-sts    | \_mta-sts.davnode.com    | Auto |
+| CNAME | \_smtp.\_tls | \_smtp.\_tls.davnode.com | Auto |
 
 <CodeGroup>
 
@@ -206,7 +206,7 @@ mta-sts
 ```
 
 ```plaintext Target (mta-sts)
-mail.davnode.me
+mail.davnode.com
 ```
 
 </CodeGroup>
@@ -218,7 +218,7 @@ _mta-sts
 ```
 
 ```plaintext Target (_mta-sts)
-_mta-sts.davnode.me
+_mta-sts.davnode.com
 ```
 
 </CodeGroup>
@@ -230,7 +230,7 @@ _smtp._tls
 ```
 
 ```plaintext Target (_smtp._tls)
-_smtp._tls.davnode.me
+_smtp._tls.davnode.com
 ```
 
 </CodeGroup>
@@ -241,10 +241,10 @@ Function: Client Auto-Configuration. Allows email clients (Outlook, Apple Mail, 
 
 DNS Zone file
 
-| Type  | Name         | Target          | TTL  |
-| :---- | :----------- | :-------------- | :--- |
-| CNAME | autoconfig   | mail.davnode.me | Auto |
-| CNAME | autodiscover | mail.davnode.me | Auto |
+| Type  | Name         | Target           | TTL  |
+| :---- | :----------- | :--------------- | :--- |
+| CNAME | autoconfig   | mail.davnode.com | Auto |
+| CNAME | autodiscover | mail.davnode.com | Auto |
 
 <CodeGroup>
 
@@ -253,7 +253,7 @@ autoconfig
 ```
 
 ```plaintext Target (autoconfig)
-mail.davnode.me
+mail.davnode.com
 ```
 
 </CodeGroup>
@@ -265,7 +265,7 @@ autodiscover
 ```
 
 ```plaintext Target (autodiscover)
-mail.davnode.me
+mail.davnode.com
 ```
 
 </CodeGroup>
@@ -276,10 +276,10 @@ Function: Service Discovery. Enables automatic discovery for Calendar (CalDAV) a
 
 DNS Zone file
 
-| Type  | Name             | Target                      | TTL  |
-| :---- | :--------------- | :-------------------------- | :--- |
-| CNAME | \_caldavs.\_tcp  | \_caldavs.\_tcp.davnode.me  | Auto |
-| CNAME | \_carddavs.\_tcp | \_carddavs.\_tcp.davnode.me | Auto |
+| Type  | Name             | Target                       | TTL  |
+| :---- | :--------------- | :--------------------------- | :--- |
+| CNAME | \_caldavs.\_tcp  | \_caldavs.\_tcp.davnode.com  | Auto |
+| CNAME | \_carddavs.\_tcp | \_carddavs.\_tcp.davnode.com | Auto |
 
 <CodeGroup>
 
@@ -288,7 +288,7 @@ _caldavs._tcp
 ```
 
 ```plaintext Target (_caldavs._tcp)
-_caldavs._tcp.davnode.me
+_caldavs._tcp.davnode.com
 ```
 
 </CodeGroup>
@@ -300,7 +300,7 @@ _carddavs._tcp
 ```
 
 ```plaintext Target (_carddavs._tcp)
-_carddavs._tcp.davnode.me
+_carddavs._tcp.davnode.com
 ```
 
 </CodeGroup>

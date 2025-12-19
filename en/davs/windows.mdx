@@ -14,10 +14,10 @@ This guide explains how to configure Davnode on Windows.
 
 Keep these settings handy for configuration:
 
-| Service                | Server            | Port  | Encryption |
-| :--------------------- | :---------------- | :---- | :--------- |
-| **CalDAV** (Calendar)  | `mail.davnode.me` | `443` | SSL/HTTPS  |
-| **CardDAV** (Contacts) | `mail.davnode.me` | `443` | SSL/HTTPS  |
+| Service                | Server             | Port  | Encryption |
+| :--------------------- | :----------------- | :---- | :--------- |
+| **CalDAV** (Calendar)  | `mail.davnode.com` | `443` | SSL/HTTPS  |
+| **CardDAV** (Contacts) | `mail.davnode.com` | `443` | SSL/HTTPS  |
 
 ---
 
@@ -32,7 +32,7 @@ Thunderbird supports CalDAV and CardDAV natively without extra plugins.
 3. Select **On the Network** and click **Next**.
 4. Enter the **User Name** (your Davnode email).
 5. For **Location**, enter the server URL:
-   `https://mail.davnode.me`
+   `https://mail.davnode.com`
    _(Or the specific calendar URL if your setup requires a full path)_
 6. Click **Find Calendars**.
 7. Enter your Davnode password when prompted.
@@ -43,7 +43,7 @@ Thunderbird supports CalDAV and CardDAV natively without extra plugins.
 1. Open the **Address Book** tab in Thunderbird.
 2. Click the arrow next to **New Address Book** and select **Add CardDAV Address Book**.
 3. Enter your **User Name** (Davnode email) and **Location**:
-   `https://mail.davnode.me`
+   `https://mail.davnode.com`
 4. Click **Continue**.
 5. Enter your password if prompted.
 6. Thunderbird will detect your address books. Click **Continue** to finish.
@@ -72,7 +72,7 @@ Outlook does not support CalDAV/CardDAV natively. You must install a plugin. We 
 4. Configure the profile:
    - **Name:** Davnode Calendar
    - **Outlook Folder:** Select your Calendar folder.
-   - **DAV URL:** `https://mail.davnode.me/`
+   - **DAV URL:** `https://mail.davnode.com/`
    - **Username:** Your Davnode email.
    - **Password:** Your Davnode password.
 5. Click **Test or discover settings**.
@@ -85,7 +85,7 @@ Outlook does not support CalDAV/CardDAV natively. You must install a plugin. We 
 3. Configure the profile:
    - **Name:** Davnode Contacts
    - **Outlook Folder:** Select your Contacts folder.
-   - **DAV URL:** `https://mail.davnode.me/`
+   - **DAV URL:** `https://mail.davnode.com/`
    - **Username:** Your Davnode email.
    - **Password:** Your Davnode password.
 4. Click **Test or discover settings**.
@@ -99,7 +99,7 @@ Outlook does not support CalDAV/CardDAV natively. You must install a plugin. We 
 
 If Thunderbird cannot auto-detect the calendar at the base URL:
 
-- Try entering the full path to your specific calendar if you know it (e.g., `https://mail.davnode.me/calendars/user@davnode.me/default/`).
+- Try entering the full path to your specific calendar if you know it (e.g., `https://mail.davnode.com/calendars/user@davnode.com/default/`).
 
 ### Outlook Plugin Sync Issues
 
